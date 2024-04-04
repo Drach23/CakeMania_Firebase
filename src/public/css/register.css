@@ -20,13 +20,15 @@ html {
 
 
 body {
-  background-color:slategray;
+  background-image:radial-gradient(rgba(29,42,84),rgb(59,79,145),rgb(42, 37, 77));
   margin: 0;
   margin-bottom: 40px;
+  color: slategray;
 }
 
 /*:::::Header Styles:::::*/
 .header {
+  bottom: 760px;
   background-color: rgb(90, 9, 3);
   display: flex;
   justify-content: space-between;
@@ -264,4 +266,5 @@ header .logo h1 a{
 .footer .group-2 small {
   font-size: 25px;
 }
+
 

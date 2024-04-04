@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "nodemon src/index.js"
   },
-  "author": "Drach",
+  "author": "Unitech",
   "license": "ISC",
   "dependencies": {
     "dotenv": "^16.4.5",

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmación de Eliminación</title>
+    <link rel="stylesheet" href="/public/css/deleteDialog.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">Confirmar Eliminación de Usuario</h1>
+        <p class="message">¿Estás seguro de que deseas eliminar a {{ user.firstname }} {{ user.lastname }}?</p>
+        <form action="/delete-user/{{ user.id }}" method="POST">
+            <button type="submit" class="confirmButton">Confirmar</button>
+            <a href="/show-users" class="cancelButton">Cancelar</a>
+        </form>
+    </div>
+</body>
+</html>

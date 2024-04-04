@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cakemania - Usuarios</title>
+    <link rel="stylesheet" href="/public/css/showUsers.css">
+</head>
+<body>
+    <div class="table-container">
+        <table class="user-table">
+            <thead>
+                <tr>
+                    <th class="column-name">Nombre</th>
+                    <th class="column-email">Correo Electrónico</th>
+                    <th class="column-phone">Teléfono</th>
+                    <th class="column-username">Nombre de usuario</th>
+                    <th class="column-actions">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each users}}
+                <tr>
+                    <td class="user-name">{{firstname}} {{lastname}}</td>
+                    <td class="user-email">{{email}}</td>
+                    <td class="user-phone">{{phone}}</td>
+                    <td class="user-username">{{username}}</td>
+                    <td class="user-actions">
+                        <a href="/confirmDelete-user/{{id}}" class="delete-link">Eliminar usuario</a>
+                        <a href="/edit-user/{{id}}" class="edit-link">Editar usuario</a>
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

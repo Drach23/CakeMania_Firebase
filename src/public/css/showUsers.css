@@ -1,0 +1,61 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+}
+
+/* Estilos de la tabla */
+.table-container {
+    margin: 20px auto;
+    overflow-x: auto;
+}
+
+.user-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.user-table th,
+.user-table td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd; /* Línea divisoria entre filas */
+    border-right: 1px solid #ddd; /* Línea divisoria entre columnas */
+}
+
+.user-table th {
+    background-color: #f2f2f2;
+    border-bottom: 2px solid #ddd; /* Línea divisoria adicional en el encabezado */
+}
+
+.user-table td:last-child,
+.user-table th:last-child {
+    border-right: none; /* Elimina el borde derecho de la última columna */
+}
+
+/* Estilos de los enlaces de acciones */
+.delete-link{
+    display: inline-block;
+    margin-right: 5px;
+    padding: 5px 10px;
+    text-decoration: none;
+    color: #fff;
+    background-color: #ff5c5c;
+    border-radius: 4px;
+}
+.edit-link{
+    display: inline-block;
+    margin-right: 5px;
+    padding: 5px 10px;
+    text-decoration: none;
+    color: #fff;
+    background-color: rgb(108, 176, 203);
+    border-radius: 4px;
+}
+
+.delete-link:hover{
+    background-color: #ff3333;
+}
+
+.edit-link:hover{
+    background-color: rgb(77, 142, 168);
+}

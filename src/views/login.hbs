@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cakemania - Login</title>
+    <link rel="stylesheet" href="/public/css/login.css">
+</head>
+
+<body>
+    <header class="header">
+    <div class="logo">
+        <h1><a href="/">Pastelerias Gourmet</a></h1>
+    </div>
+    <nav>
+        <ul class="navLinks">
+            <li><a href="#">Productos</a></li>
+            <li><a href="#aboutUs">Sobre nosotros</a></li>
+            <li><a href="#">Mapa</a></li>
+        </ul>
+    </nav>
+    </header>
+    <form class="formRegister" id="form"
+        action="/login" method="POST">
+        <div class="formTittle">
+            <h4>Iniciar sesion</h4>
+        </div>
+        <input class="controls" type="email" name="email" id="inputEmail" placeholder="Ingresa tu correo electronico">
+        <input class="controls" type="password" name="password" id="inputPassword" placeholder="Ingresa una contraseña">
+        <button class="buttons">Iniciar sesion</button>
+        <div class="linkTittle">
+            <p>¿Aun no tienes cuenta?</p>
+            <a href="/register">Crea una aqui</a>
+        </div>
+        <div id="successMessage" class="success-message"></div>
+        <div id="errorMessage" class="error-message"></div>
+    </form>
+    <footer class="footer">
+        <div class="group-1">
+            <div class="box">
+                <figure>
+                    <h1><a href="/">Pastelerias Gourmet</a></h1>
+                </figure>
+            </div>
+            <div class="box">
+                <h2>SOBRE NOSOTROS</h2>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Numquam, assumenda!</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, unde.</p>
+            </div>
+            <div class="box">
+                <h2>SIGUENOS EN NUESTRAS REDES SOCIALES</h2>
+                <div class="socialMedia">
+                    <a href="#" class="fa-brands fa-facebook"></a>
+                    <a href="#" class="fa-brands fa-instagram"></a>
+                    <a href="#" class="fa-brands fa-tiktok"></a>
+                </div>
+            </div>
+        </div>
+        <div class="group-2">
+            <small>&copy;2024 <b>PASTELERIAS GOURMET | Todos los derechos reservados</small>
+        </div>
+    </footer>
+</body>
+
+</html>
