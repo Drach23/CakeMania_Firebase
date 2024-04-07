@@ -1,5 +1,6 @@
 const {Router} = require('express')
-const {db} = require('../firebase')
+const {db,auth} = require('../firebase')
+
 
 const router = Router()
 
@@ -12,6 +13,19 @@ router.get('/',async(req,res)=>{
 router.get('/login',async (req,res)=>{
   res.render('login')
 })
+
+router.post('/login', async (req, res) => {
+  const { email, password } = req.body;
+
+  try {
+    const userCredential = await auth.signInWithEmailAndPassword(email, password);
+    // Autenticación exitosa, puedes redirigir a otra página o enviar una respuesta adecuada
+    res.redirect('');
+  } catch (error) {
+    console.error('Error al iniciar sesión:', error);
+    res.render('login', { errorMessage: 'Error al iniciar sesión. Por favor, verifica tu correo electrónico y contraseña.' });
+  }
+});
 
 //mostrar usuarios
 router.get('/show-users',async (req,res)=>{
@@ -38,6 +52,13 @@ router.get('/register', async(req,res) =>{//Aqui se obtienen los datos de usuari
   router.post('/new-user', async (req,res) => {
     const {firstname,lastname,phone ,email ,username , password } =  req.body
 
+    try{
+      const userRecord = await auth.createUser({
+        email,
+        password,
+        displayName: `${firstname} ${lastname}` 
+      });
+
     await db.collection('user').add({
         firstname,
         lastname,
@@ -45,7 +66,13 @@ router.get('/register', async(req,res) =>{//Aqui se obtienen los datos de usuari
         email,
         username,
         password,
-    })
+    });
+
+  }catch(error){
+    console.error("Ha habido un error al crear al usuario", error);
+    res.status(500).send("error interno en el servidor");
+  };
+
 
     res.redirect('/')
   })
