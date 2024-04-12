@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cakemania - Login</title>
     <link rel="stylesheet" href="/public/css/login.css">
+     {{!-- Javascript de validacion y envio de datos --}}
+    <script type="module" src="/public/js/firebaseLogin.js"></script>
 </head>
 
 <body>
@@ -22,13 +24,13 @@
     </nav>
     </header>
     <form class="formRegister" id="form"
-        action="/login" method="POST">
+        {{!-- action="/login" method="POST"> --}}>
         <div class="formTittle">
             <h4>Iniciar sesion</h4>
         </div>
         <input class="controls" type="email" name="email" id="inputEmail" placeholder="Ingresa tu correo electronico">
         <input class="controls" type="password" name="password" id="inputPassword" placeholder="Ingresa una contraseña">
-        <button class="buttons">Iniciar sesion</button>
+        <button class="buttons" type="button">Iniciar sesion</button>
         <div class="linkTittle">
             <p>¿Aun no tienes cuenta?</p>
             <a href="/register">Crea una aqui</a>
@@ -62,5 +64,28 @@
         </div>
     </footer>
 </body>
-
 </html>
+
+<script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-analytics.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyDNip1hN7oluDfRsVcyZ04-RWMmyQQkdvM",
+    authDomain: "cakemania-908db.firebaseapp.com",
+    projectId: "cakemania-908db",
+    storageBucket: "cakemania-908db.appspot.com",
+    messagingSenderId: "688269458179",
+    appId: "1:688269458179:web:6d59d5ef3ad2ce087d4736",
+    measurementId: "G-38F4RMDQF4"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+</script>

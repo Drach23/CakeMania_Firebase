@@ -3,9 +3,12 @@ const { ExpressHandlebars } = require('express-handlebars');
 const morgan = require('morgan')
 const path = require('path')
 const exphbs = require("express-handlebars");
+const cookieParser = require('cookie-parser');
+
 
 
 const app = express();
+
 
 app.set('views', path.join(__dirname, 'views'))
 
@@ -21,10 +24,11 @@ app.use(morgan('dev')) //corre el archivo con npm run dev gracias al script crea
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 
+app.use(cookieParser());
 app.use(require('./routes/index'))
 
 //rutas publicas del css y obtencion de recursos esteticos.
-app.use('/public/css',express.static(path.join(__dirname, 'public/css')))
+app.use('/public/css',express.static(path.join(__dirname, '/public/css')))
 app.use('/public/img',express.static(path.join(__dirname, '/public/img')))
 app.use('/public/js',express.static(path.join(__dirname,'/public/js')))
 module.exports = app;

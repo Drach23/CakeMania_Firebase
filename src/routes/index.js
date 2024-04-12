@@ -1,5 +1,5 @@
 const {Router} = require('express')
-const {db,auth} = require('../firebase')
+const {db} = require('../firebase')
 
 
 const router = Router()
@@ -14,22 +14,12 @@ router.get('/login',async (req,res)=>{
   res.render('login')
 })
 
-router.post('/login', async (req, res) => {
-  const { email, password } = req.body;
 
-  try {
-    const userCredential = await auth.signInWithEmailAndPassword(email, password);
-    // Autenticación exitosa, puedes redirigir a otra página o enviar una respuesta adecuada
-    res.redirect('');
-  } catch (error) {
-    console.error('Error al iniciar sesión:', error);
-    res.render('login', { errorMessage: 'Error al iniciar sesión. Por favor, verifica tu correo electrónico y contraseña.' });
-  }
-});
+
 
 //mostrar usuarios
 router.get('/show-users',async (req,res)=>{
-  const querySnapshot = await db.collection('user').get()
+  const querySnapshot = await db.collection('users').get()
     const users = querySnapshot.docs.map(doc => ({
         id: doc.id,
         ...doc.data()
@@ -53,12 +43,6 @@ router.get('/register', async(req,res) =>{//Aqui se obtienen los datos de usuari
     const {firstname,lastname,phone ,email ,username , password } =  req.body
 
     try{
-      const userRecord = await auth.createUser({
-        email,
-        password,
-        displayName: `${firstname} ${lastname}` 
-      });
-
     await db.collection('user').add({
         firstname,
         lastname,
@@ -68,18 +52,19 @@ router.get('/register', async(req,res) =>{//Aqui se obtienen los datos de usuari
         password,
     });
 
+    
+    res.redirect('/')
+
   }catch(error){
     console.error("Ha habido un error al crear al usuario", error);
     res.status(500).send("error interno en el servidor");
   };
 
-
-    res.redirect('/')
   })
 
   //findUserById
   router.get('/edit-user/:id', async (req,res)=>{
-   const doc =  await db.collection('user').doc(req.params.id).get()
+   const doc =  await db.collection('users').doc(req.params.id).get()
 
    res.render('editDialog',{user: {id: doc.id, ...doc.data()}})
 
@@ -87,7 +72,7 @@ router.get('/register', async(req,res) =>{//Aqui se obtienen los datos de usuari
 
   //peticiones delete con confirmacion
   router.get('/confirmDelete-user/:id', async (req,res)=>{
-    const doc = await db.collection('user').doc(req.params.id).get()
+    const doc = await db.collection('users').doc(req.params.id).get()
     res.render('deleteDialog',{user: {id: doc.id, ...doc.data()}})
   })
 
@@ -96,7 +81,7 @@ router.get('/register', async(req,res) =>{//Aqui se obtienen los datos de usuari
     const id = req.params.id.trim();
 
     try {
-        await db.collection('user').doc(id).delete();
+        await db.collection('users').doc(id).delete();
         res.redirect('/show-users');
     } catch (error) {
         console.error("Error al eliminar el usuario", error);
@@ -109,7 +94,7 @@ router.get('/register', async(req,res) =>{//Aqui se obtienen los datos de usuari
     const {firstname, lastname, email,phone, username} = req.body;
     const id = req.params.id.trim() //elimina espacios en blanco;
     try{
-      const userRef = db.collection("user").doc(id);
+      const userRef = db.collection("users").doc(id);
       const userDoc = await userRef.get();
 
       if(!userDoc.exists){

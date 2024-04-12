@@ -9,9 +9,11 @@
   "author": "Unitech",
   "license": "ISC",
   "dependencies": {
+    "cookie-parser": "^1.4.6",
     "dotenv": "^16.4.5",
     "express": "^4.19.1",
     "express-handlebars": "^7.1.2",
+    "firebase": "^10.10.0",
     "firebase-admin": "^12.0.0",
     "morgan": "^1.10.0"
   },
