@@ -43,7 +43,7 @@ router.get('/register', async(req,res) =>{//Aqui se obtienen los datos de usuari
     const {firstname,lastname,phone ,email ,username , password } =  req.body
 
     try{
-    await db.collection('user').add({
+    await db.collection('users').add({
         firstname,
         lastname,
         phone,

@@ -9,12 +9,12 @@
 <body>
     <div class="container">
         <h1 class="title">Confirmar Edición de Usuario</h1>
-        <p class="subtitle">¿Estás seguro de que deseas editar a {{ user.firstName}} {{ user.lastName }}?</p>
+        <p class="subtitle">¿Estás seguro de que deseas editar a {{ user.firstname}} {{ user.lastname }}?</p>
         <form class="formRegister" id="form" action="/update-user/{{ user.id }}" method="POST">
             <div class="formSection">
                 <h2>Información personal</h2>
-                <input class="inputField" type="text" name="firstname" placeholder="Ingresa tu nombre" value="{{ user.firstName }}">
-                <input class="inputField" type="text" name="lastname" placeholder="Ingresa tus apellidos" value="{{ user.lastName }}">
+                <input class="inputField" type="text" name="firstname" placeholder="Ingresa tu nombre" value="{{ user.firstname }}">
+                <input class="inputField" type="text" name="lastname" placeholder="Ingresa tus apellidos" value="{{ user.lastname }}">
                 <input class="inputField" type="number" name="phone" placeholder="Ingresa tu numero de telefono" value="{{ user.phone }}">
                 <input class="inputField" type="email" name="email" placeholder="Ingresa tu correo electronico" value="{{ user.email }}">
             </div>

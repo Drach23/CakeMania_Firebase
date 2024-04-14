@@ -24,7 +24,7 @@ const auth = getAuth(); // Obtiene el objeto de autenticación
 
 // Referencias a los campos de entrada
 const inputName = document.getElementById("inputName");
-const inputLastName = document.getElementById("inputLastName");
+const inputLastname = document.getElementById("inputLastname");
 const inputPhone = document.getElementById("inputPhone");
 const inputEmail = document.getElementById("inputEmail");
 const inputUsername = document.getElementById("inputUsername");
@@ -34,8 +34,8 @@ const inputConfirmPassword = document.getElementById("inputConfirmPassword")
 // Función para enviar los datos a Firestore y crear el usuario
 async function enviarDatos() {
   // Obtiene los valores de los campos
-  const firstName = inputName.value.trim();
-  const lastName = inputLastName.value.trim();
+  const firstname = inputName.value.trim();
+  const lastname = inputLastname.value.trim();
   const phone = inputPhone.value.trim();
   const email = inputEmail.value.trim();
   const username = inputUsername.value.trim();
@@ -50,8 +50,8 @@ async function enviarDatos() {
 
     // Crea un objeto con los datos del usuario
     const userData = {
-      firstName,
-      lastName,
+      firstname,
+      lastname,
       phone,
       email,
       username,
