@@ -3,11 +3,15 @@ const { ExpressHandlebars } = require('express-handlebars');
 const morgan = require('morgan')
 const path = require('path')
 const exphbs = require("express-handlebars");
-const cookieParser = require('cookie-parser');
+const multer = require("multer")
 
 
 
 const app = express();
+
+// Configura el middleware de Multer
+const storage = multer.memoryStorage(); // Almacenamiento en memoria para archivos
+const upload = multer({ storage: storage });
 
 
 app.set('views', path.join(__dirname, 'views'))
@@ -24,7 +28,8 @@ app.use(morgan('dev')) //corre el archivo con npm run dev gracias al script crea
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 
-app.use(cookieParser());
+app.use(upload.single('productImage')); // Usa Multer antes de tus rutas
+
 app.use(require('./routes/index'))
 
 //rutas publicas del css y obtencion de recursos esteticos.

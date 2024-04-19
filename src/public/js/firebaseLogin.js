@@ -41,7 +41,7 @@ async function userLogin(){
   }
 
   
-  const buttonLogin = document.querySelector(".buttons");
+  const buttonLogin = document.querySelector(".login__button");
 buttonLogin.addEventListener("click", (event) => {
   event.preventDefault(); // Evita la recarga de la página
   userLogin(); // Llama a la función de inicio de sesión

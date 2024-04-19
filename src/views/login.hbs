@@ -1,68 +1,46 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cakemania - Login</title>
+    <title>Pastelería Gourmet Login</title>
     <link rel="stylesheet" href="/public/css/login.css">
-     {{!-- Javascript de validacion y envio de datos --}}
     <script type="module" src="/public/js/firebaseLogin.js"></script>
 </head>
-
 <body>
-    <header class="header">
-    <div class="logo">
-        <h1><a href="/">Pastelerias Gourmet</a></h1>
-    </div>
-    <nav>
-        <ul class="navLinks">
-            <li><a href="#">Productos</a></li>
-            <li><a href="#aboutUs">Sobre nosotros</a></li>
-            <li><a href="#">Mapa</a></li>
-        </ul>
-    </nav>
+    <header>
+        <nav>
+            <ul class="nav__links">
+                <li><a href="#">Productos</a></li>
+                <li><a href="#">Pedidos</a></li>
+                <li><a href="#">Mapa</a></li>
+            </ul>
+        </nav>
     </header>
-    <form class="formRegister" id="form"
-        {{!-- action="/login" method="POST"> --}}>
-        <div class="formTittle">
-            <h4>Iniciar sesion</h4>
-        </div>
-        <input class="controls" type="email" name="email" id="inputEmail" placeholder="Ingresa tu correo electronico">
-        <input class="controls" type="password" name="password" id="inputPassword" placeholder="Ingresa una contraseña">
-        <button class="buttons" type="button">Iniciar sesion</button>
-        <div class="linkTittle">
-            <p>¿Aun no tienes cuenta?</p>
-            <a href="/register">Crea una aqui</a>
-        </div>
-        <div id="successMessage" class="success-message"></div>
-        <div id="errorMessage" class="error-message"></div>
-    </form>
-    <footer class="footer">
-        <div class="group-1">
-            <div class="box">
-                <figure>
-                    <h1><a href="/">Pastelerias Gourmet</a></h1>
-                </figure>
-            </div>
-            <div class="box">
-                <h2>SOBRE NOSOTROS</h2>
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Numquam, assumenda!</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, unde.</p>
-            </div>
-            <div class="box">
-                <h2>SIGUENOS EN NUESTRAS REDES SOCIALES</h2>
-                <div class="socialMedia">
-                    <a href="#" class="fa-brands fa-facebook"></a>
-                    <a href="#" class="fa-brands fa-instagram"></a>
-                    <a href="#" class="fa-brands fa-tiktok"></a>
+    <main>
+        <section class="login__section">
+            <div class="login__container">
+                <div class="login__avatar"></div>
+                <form class="login__form">
+                    <div class="form__group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="inputEmail" placeholder="Elvisko@Gmail.Com">
+                    </div>
+                    <div class="form__group">
+                        <label for="password">Contraseña:</label>
+                        <input type="password" id="inputPassword">
+                    </div>
+                    <button type="submit" class="login__button">Iniciar Sesión</button>
+                </form>
+                <div class="login__footer">
+                    <p>¿AUN NO TIENES CUENTA? <a href="#">DA CLICK AQUI PARA CREAR UNA</a></p>
                 </div>
             </div>
-        </div>
-        <div class="group-2">
-            <small>&copy;2024 <b>PASTELERIAS GOURMET | Todos los derechos reservados</small>
-        </div>
-    </footer>
+        </section>
+        <aside class="image__aside">
+            <!-- Cupcake image will be here -->
+        </aside>
+    </main>
 </body>
 </html>
 

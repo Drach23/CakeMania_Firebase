@@ -5,11 +5,12 @@ const {initializeApp, applicationDefault} = require('firebase-admin/app')//obtie
 
 
 initializeApp({//Obtiene las credenciales de administrador 
-    credential: applicationDefault()
+    credential: applicationDefault(),
+    storageBucket: 'gs://cakemania-908db.appspot.com'
 })
 
 const db = getFirestore()//creamos la constante que tiene acceso a la base de datos
 
 module.exports = {
-    db,
+    db
 }

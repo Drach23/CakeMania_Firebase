@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuevo producto</title>
+    <link rel="stylesheet" href="/public/css/newProduct.css">
+</head>
+<body>
+    <form action="/new-product" method="POST" enctype="multipart/form-data">
+     <div class="form__Title">
+        <h4>Crea un nuevo producto</h4>
+    </div>
+    <input class="form__inputs" type="text" name="productName" id="inputProductName" placeholder="Ingresa el nombre del producto">
+
+    <input class="form__inputs" type="text" name="productDescription" id="inputDescription" placeholder="Ingresa la descripcion del producto">
+
+    <input class="form__inputs" type="number" name="productPrice" id="inputPrice" placeholder="Ingresa el precio del producto">
+
+    <select name="productCategory" id="selectCategory" class="form__selectCategory">
+        <option disabled selected hidden value="">Selecciona una categoría</option>
+        <option value="muffins">Muffins</option>
+        <option value="pasteles">Pasteles</option>
+        <option value="galletas">Galletas</option>
+        <option value="pays">Pays</option>
+        <option value="panes">Panes</option>
+        <option value="gelatinas">Gelatinas</option>
+    </select>
+
+    <input type="file" id="productImage" name="productImage"  class="form__InputImage">
+    <img id="imagePreview" src="#" alt="Vista previa de la imagen" style="display: none;" class="form__imgPreview">
+    <button type="submit" class="form__button">Crear nuevo producto</button>
+</form>
+</body>
+</html>
