@@ -2,6 +2,8 @@ const { Router } = require('express')
 const { db } = require('../firebase')
 const multer = require('multer');
 const { uploadImageToStorage } = require('../public/js/imageUpload.js');
+const { Storage } = require('@google-cloud/storage');
+
 
 
 
@@ -141,18 +143,17 @@ router.get('/new-product', async (req, res) => {
 router.post('/new-product', async (req, res) => {
   const { productName, productDescription, productPrice, productCategory } = req.body;
   const file = req.file; // Obtiene el archivo de la solicitud
-
   try {
     // Sube la imagen a Firebase Storage
     const imageUrl = await uploadImageToStorage(file, file.originalname);
 
-    // Guarda el producto en la base de datos junto con la URL de la imagen
+    // Guarda el producto en la base de datos junto con el nombre del archivo de la imagen
     await db.collection('products').add({
       productName,
       productDescription,
       productPrice,
       productCategory,
-      imageUrl // Guarda la URL de la imagen en la base de datos
+      imageName: file.originalname // Guarda el nombre del archivo de la imagen en la base de datos
     });
 
     res.redirect('/products');
@@ -162,21 +163,43 @@ router.post('/new-product', async (req, res) => {
   }
 });
 
-router.get("/products",async (req,res)=>{
+// Función para obtener la URL completa de la imagen en Firebase Storage
+async function getImageUrl(imageName) {
+  const storage = new Storage();
+  const bucket = storage.bucket('cakemania-908db.appspot.com'); // Nombre de tu bucket en Firebase Storage
+  const file = bucket.file(imageName);
+  const signedUrl = await file.getSignedUrl({
+    action: 'read',
+    expires: Date.now() + 1000 * 60 * 60 * 24 * 7, // URL válida por una semana
+  });
+
+  return signedUrl[0];
+}
+
+router.get("/products", async (req, res) => {
   try {
     const querySnapshot = await db.collection('products').get();
-    const products = querySnapshot.docs.map(doc => ({
-      id: doc.id,
-      ...doc.data()
-    }));
+    const products = querySnapshot.docs.map(async doc => {
+      const data = doc.data();
+      const imageUrl = await getImageUrl(data.imageName); // Obtiene la URL de la imagen
 
-    res.render('products', { products });
+      // Retorna un objeto con los datos del producto y la URL de la imagen
+      return {
+        id: doc.id,
+        ...data,
+        imageUrl: imageUrl // Agrega la URL de la imagen al objeto del producto
+      };
+    });
+
+    // Espera a que se resuelvan todas las promesas de obtención de URL de imagen
+    const resolvedProducts = await Promise.all(products);
+
+    res.render('products', { products: resolvedProducts });
   } catch (error) {
     console.error("Error al obtener los productos: ", error);
     res.status(500).send("Error interno en el servidor");
   }
 });
-
 //rutas para pedidos
 //mostrar todos los pedidos
 router.get("/show-order", async(req,res)=>{
