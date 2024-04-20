@@ -1,87 +1,66 @@
-/* Estilos básicos */
-body {
-    font-family: 'Arial', sans-serif;
-    background-color: #fff8f0;
-    color: #333;
+body, h1, h2, h3, p {
     margin: 0;
     padding: 0;
-}
-
-header {
-    background-color: #f9e4d4;
-    padding: 20px 40px;
+  }
+  body {
+    font-family: 'Arial', sans-serif;
+  }
+  .navbar {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-
-.logo h1 a {
-    text-decoration: none;
-    color: #5d4037;
-    font-size: 24px;
-}
-
-nav ul {
-    list-style: none;
-    padding: 0;
-}
-
-.navLinks li {
-    display: inline;
-    margin-left: 20px;
-}
-
-.navLinks a {
-    text-decoration: none;
-    color: #5d4037;
-    font-weight: bold;
-}
-
-.navLinks a:hover {
-    color: #3e2723;
-}
-
-.btn button {
-    background-color: #ffab91;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background-color 0.3s;
-}
-
-.btn button:hover {
-    background-color: #ff8a65;
-}
-
-/* Estilos específicos para la página de productos */
-h1 {
-    text-align: center;
-    color: #5d4037;
-}
-
-ul {
-    width: 80%;
-    margin: auto;
-    padding: 0;
-}
-
-li {
     background-color: #fff;
-    margin-top: 20px;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-
-h2 {
-    color: #3e2723;
-}
-
-img {
-    max-width: 100%;
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  .navbar ul {
+    list-style: none;
+    display: flex;
+  }
+  .navbar ul li {
+    padding: 0 15px;
+  }
+  .navbar a {
+    text-decoration: none;
+    color: #333;
+  }
+  .cover {
+    position: relative;
+    text-align: center;
+    color: white;
+  }
+  .cover h1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 48px;
+    background-color: rgba(0,0,0,0.5);
+    padding: 10px;
+  }
+  .cover img {
+    width: 100%;
+    height: auto;
     display: block;
-    margin-top: 10px;
-}
+  }
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 10px;
+    padding: 10px;
+  }
+  .gallery-item {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .gallery-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  .gallery-item h3 {
+    background-color: #f7f7f7;
+    padding: 5px;
+    text-align: center;
+  }
+  

@@ -1,37 +1,38 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Todos los productos</title>
-    <link rel="stylesheet" href="/public/css/products.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pastelería Gourmet</title>
+<link rel="stylesheet" href="/public/css/products.css">
 </head>
 <body>
-    <header class="header">
-        <div class="logo">
-            <h1><a href="./index.html">Pastelerias Gourmet</a></h1>
-        </div>
-        <nav>
-            <ul class="navLinks">
-                <li><a href="#">Productos</a></li>
-                <li><a href="#aboutUs">Sobre nosotros</a></li>
-                <li><a href="#">Mapa</a></li>
-            </ul>
-        </nav>
-        <a href="/login" class="btn"><button>Iniciar sesion</button></a>
-    </header>
-    <h1>Todos los productos</h1>
-    <ul>
-        {{#each products}}
-        <li>
-            <h2>{{this.productName}}</h2>
-            <p><strong>Descripción:</strong> {{this.productDescription}}</p>
-            <p><strong>Precio:</strong> {{this.productPrice}}</p>
-            <p><strong>Categoría:</strong> {{this.productCategory}}</p>
-            <img src="https://firebasestorage.googleapis.com/v0/b/cakemania-908db.appspot.com/o/1.jpg?alt=media&token=b0782de5-670e-499a-bcd9-e3b5b52aacd9" alt="Imagen del producto">
-            <!-- Aquí puedes agregar más detalles según sea necesario -->
-        </li>
-        {{/each}}
-    </ul>
+
+<div class="navbar">
+    <h3>Cakemania</h3>
+  <ul>
+    <li><a href="#">Productos</a></li>
+    <li><a href="#">Pedidos</a></li>
+    <li><a href="#">Mapa</a></li>
+    <li><a href="#">Usuario</a></li>
+  </ul>
+</div>
+
+<div class="cover">
+  <img src="/public/img/categorias/1.jpg" alt="Pastel destacado">
+  <h1>PASTELES</h1>
+</div>
+
+<div class="gallery">
+  {{#each products}}
+    <div class="gallery-item">
+      <!-- Reemplaza la URL estática con la URL dinámica obtenida de cada producto -->
+      <img src="{{this.imageUrl}}" alt="{{this.productName}}">
+      <h3>{{this.productName}}</h3>
+    </div>
+  {{/each}}
+</div>
+
+
 </body>
 </html>
