@@ -148,7 +148,7 @@ router.post('/new-product', async (req, res) => {
     const imageUrl = await uploadImageToStorage(file, file.originalname);
 
     // Guarda el producto en la base de datos junto con el nombre del archivo de la imagen
-    await db.collection('products').add({
+    await db.collection('products-cake').add({
       productName,
       productDescription,
       productPrice,
@@ -156,7 +156,7 @@ router.post('/new-product', async (req, res) => {
       imageName: file.originalname // Guarda el nombre del archivo de la imagen en la base de datos
     });
 
-    res.redirect('/products');
+    res.redirect('/products-cake');
   } catch (error) {
     console.error("Ha habido un error al crear el producto: ", error);
     res.status(500).send("Error interno en el servidor");
@@ -176,9 +176,9 @@ async function getImageUrl(imageName) {
   return signedUrl[0];
 }
 
-router.get("/products", async (req, res) => {
+router.get("/products-cake", async (req, res) => {
   try {
-    const querySnapshot = await db.collection('products').get();
+    const querySnapshot = await db.collection('products-cake').get();
     const products = querySnapshot.docs.map(async doc => {
       const data = doc.data();
       const imageUrl = await getImageUrl(data.imageName); // Obtiene la URL de la imagen
@@ -194,7 +194,7 @@ router.get("/products", async (req, res) => {
     // Espera a que se resuelvan todas las promesas de obtención de URL de imagen
     const resolvedProducts = await Promise.all(products);
 
-    res.render('products', { products: resolvedProducts });
+    res.render('products-cake', { products: resolvedProducts });
   } catch (error) {
     console.error("Error al obtener los productos: ", error);
     res.status(500).send("Error interno en el servidor");
@@ -232,4 +232,9 @@ router.post("/new-order",async (req,res)=>{
   }
 })
 //branch
+
+//Admin
+router.get("/admin",async(req,res)=>{
+  res.render("adminLanding")
+})
 module.exports = router;

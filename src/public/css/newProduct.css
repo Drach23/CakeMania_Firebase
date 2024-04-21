@@ -7,6 +7,7 @@ body {
     padding: 20px;
 }
 
+
 /* Form Title Styles */
 .form__Title h4 {
     text-align: center;
@@ -71,18 +72,52 @@ body {
     max-width: 400px;
     border-radius: 8px;
 }
-.form__button{
-    width: 17%;
-    height: 40px;
-    display: block;
+/* Estilos para los botones de acción */
+.form__actions {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.dashboard-link, .form__button {
+    display: inline-block;
+    padding: 10px 15px;
+    text-decoration: none;
+    color: #fff;
     border-radius: 8px;
-    margin: auto auto;
+    font-size: 16px;
+    margin: 0 10px; /* Añade un margen a ambos lados para separar los botones */
+    transition: background-color 0.3s;
+}
+
+.dashboard-link {
+    background-color: #394263; /* Un color contrastante para el botón de regreso */
+    border: none;
+}
+
+.form__button {
+    background-color: #5c67f2; /* Un color primario para la acción de crear */
+    border: none;
     cursor: pointer;
 }
-.form__button:active{
-    color: white;
-    background-color: #333;
+
+.dashboard-link:hover, .form__button:hover {
+    background-color: #333; /* Un color para el hover en ambos botones */
 }
+
+/* Ajustes de responsividad si son necesarios */
+@media (min-width: 768px) {
+    .form__actions {
+        text-align: center;
+    }
+}
+
+/* Continúa con los otros estilos existentes y ajustes aquí */
+
+
+
+
+
+
 
 /* Responsive Adjustments */
 @media (min-width: 768px) {
