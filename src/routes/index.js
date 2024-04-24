@@ -140,15 +140,42 @@ router.get('/new-product', async (req, res) => {
 
 
 //crear un nuevo producto
+//crear un nuevo producto
 router.post('/new-product', async (req, res) => {
   const { productName, productDescription, productPrice, productCategory } = req.body;
   const file = req.file; // Obtiene el archivo de la solicitud
+
   try {
     // Sube la imagen a Firebase Storage
     const imageUrl = await uploadImageToStorage(file, file.originalname);
 
-    // Guarda el producto en la base de datos junto con el nombre del archivo de la imagen
-    await db.collection('products-cake').add({
+    let collectionName;
+    // Determina la colección en función de la categoría seleccionada
+    switch (productCategory) {
+      case "muffins":
+        collectionName = "products-cupcake";
+        break;
+      case "pasteles":
+        collectionName = "products-cakes";
+        break;
+      case "batidos":
+        collectionName = "products-milkshake";
+        break;
+      case "pays":
+        collectionName = "products-pie";
+        break;
+      case "panes":
+        collectionName = "products-bake";
+        break;
+      case "gelatinas":
+        collectionName = "products-jelly";
+        break;
+      default:
+        throw new Error("Categoría de producto no válida");
+    }
+
+    // Guarda el producto en la base de datos en la colección correspondiente
+    await db.collection(collectionName).add({
       productName,
       productDescription,
       productPrice,
@@ -156,12 +183,13 @@ router.post('/new-product', async (req, res) => {
       imageName: file.originalname // Guarda el nombre del archivo de la imagen en la base de datos
     });
 
-    res.redirect('/products-cake');
+    res.redirect(`/products`);
   } catch (error) {
     console.error("Ha habido un error al crear el producto: ", error);
     res.status(500).send("Error interno en el servidor");
   }
 });
+
 
 // Función para obtener la URL completa de la imagen en Firebase Storage
 async function getImageUrl(imageName) {
@@ -194,12 +222,142 @@ router.get("/products-cake", async (req, res) => {
     // Espera a que se resuelvan todas las promesas de obtención de URL de imagen
     const resolvedProducts = await Promise.all(products);
 
-    res.render('products-cake', { products: resolvedProducts });
+    res.render('products-cake', { "products-cake": resolvedProducts });
   } catch (error) {
     console.error("Error al obtener los productos: ", error);
     res.status(500).send("Error interno en el servidor");
   }
 });
+
+router.get("/products-milkshake", async (req, res) => {
+  try {
+    const querySnapshot = await db.collection('products-milkshake').get();
+    const products = querySnapshot.docs.map(async doc => {
+      const data = doc.data();
+      const imageUrl = await getImageUrl(data.imageName); // Obtiene la URL de la imagen
+
+      // Retorna un objeto con los datos del producto y la URL de la imagen
+      return {
+        id: doc.id,
+        ...data,
+        imageUrl: imageUrl // Agrega la URL de la imagen al objeto del producto
+      };
+    });
+
+    // Espera a que se resuelvan todas las promesas de obtención de URL de imagen
+    const resolvedProducts = await Promise.all(products);
+
+    res.render('products-milkshakes', { "products-milkshake": resolvedProducts });
+  } catch (error) {
+    console.error("Error al obtener los productos: ", error);
+    res.status(500).send("Error interno en el servidor");
+  }
+});
+
+router.get("/products-cupcakes", async (req, res) => {
+  try {
+    const querySnapshot = await db.collection('products-cupcake').get();
+    const products = querySnapshot.docs.map(async doc => {
+      const data = doc.data();
+      const imageUrl = await getImageUrl(data.imageName); // Obtiene la URL de la imagen
+
+      // Retorna un objeto con los datos del producto y la URL de la imagen
+      return {
+        id: doc.id,
+        ...data,
+        imageUrl: imageUrl // Agrega la URL de la imagen al objeto del producto
+      };
+    });
+
+    // Espera a que se resuelvan todas las promesas de obtención de URL de imagen
+    const resolvedProducts = await Promise.all(products);
+
+    res.render('products-cupcakes', { "products-cupcakes": resolvedProducts });
+  } catch (error) {
+    console.error("Error al obtener los productos: ", error);
+    res.status(500).send("Error interno en el servidor");
+  }
+});
+
+router.get("/products-bakes", async (req, res) => {
+  try {
+    const querySnapshot = await db.collection('products-bake').get();
+    const products = querySnapshot.docs.map(async doc => {
+      const data = doc.data();
+      const imageUrl = await getImageUrl(data.imageName); // Obtiene la URL de la imagen
+
+      // Retorna un objeto con los datos del producto y la URL de la imagen
+      return {
+        id: doc.id,
+        ...data,
+        imageUrl: imageUrl // Agrega la URL de la imagen al objeto del producto
+      };
+    });
+
+    // Espera a que se resuelvan todas las promesas de obtención de URL de imagen
+    const resolvedProducts = await Promise.all(products);
+
+    res.render('products-bake', { "products-bake": resolvedProducts });
+  } catch (error) {
+    console.error("Error al obtener los productos: ", error);
+    res.status(500).send("Error interno en el servidor");
+  }
+});
+
+router.get("/products-jelly", async (req, res) => {
+  try {
+    const querySnapshot = await db.collection('products-jelly').get();
+    const products = querySnapshot.docs.map(async doc => {
+      const data = doc.data();
+      const imageUrl = await getImageUrl(data.imageName); // Obtiene la URL de la imagen
+
+      // Retorna un objeto con los datos del producto y la URL de la imagen
+      return {
+        id: doc.id,
+        ...data,
+        imageUrl: imageUrl // Agrega la URL de la imagen al objeto del producto
+      };
+    });
+
+    // Espera a que se resuelvan todas las promesas de obtención de URL de imagen
+    const resolvedProducts = await Promise.all(products);
+
+    res.render('products-jelly', { "products-jelly": resolvedProducts });
+  } catch (error) {
+    console.error("Error al obtener los productos: ", error);
+    res.status(500).send("Error interno en el servidor");
+  }
+});
+
+router.get("/products-pie", async (req, res) => {
+  try {
+    const querySnapshot = await db.collection('products-pie').get();
+    const products = querySnapshot.docs.map(async doc => {
+      const data = doc.data();
+      const imageUrl = await getImageUrl(data.imageName); // Obtiene la URL de la imagen
+
+      // Retorna un objeto con los datos del producto y la URL de la imagen
+      return {
+        id: doc.id,
+        ...data,
+        imageUrl: imageUrl // Agrega la URL de la imagen al objeto del producto
+      };
+    });
+
+    // Espera a que se resuelvan todas las promesas de obtención de URL de imagen
+    const resolvedProducts = await Promise.all(products);
+
+    res.render('products-pie', { "products-pie": resolvedProducts });
+  } catch (error) {
+    console.error("Error al obtener los productos: ", error);
+    res.status(500).send("Error interno en el servidor");
+  }
+});
+
+
+router.get("/products",async (req,res)=>{
+  res.render("products-landing")
+})
 //rutas para pedidos
 //mostrar todos los pedidos
 router.get("/show-order", async(req,res)=>{

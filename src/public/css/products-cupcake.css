@@ -1,0 +1,229 @@
+body, h1, h2, h3, p {
+    margin: 0;
+    padding: 0;
+  }
+  body {
+    font-family: 'Arial', sans-serif;
+  }
+  /*:::::Header Styles:::::*/
+.header {
+  background-color: rgb(51,3,0);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 85px;
+  padding: 5px 10%;
+}
+
+header .logo h1 a{
+  cursor: pointer;
+  font-size: 30px;
+  color:white;
+  pointer-events:painted;
+  user-select: none;
+  text-decoration: none;
+}
+
+.header .logo img {
+  height: 80px;
+  width: auto;
+}
+
+.header .logo img:hover {
+  transform: scale(1.2);
+}
+
+
+.header .navLinks li {
+  display: inline-block;
+  padding: 0 20px;
+  user-select: none;
+}
+
+.header .navLinks li:hover {
+  transform: scale(1.1);
+}
+
+.header .navLinks a {
+  font-size: 26px;
+  text-decoration: none;
+  color: white;
+  transition: all 0.3s;
+  user-select: none;
+}
+
+.header .navLinks li a:hover {
+  color: #ffbc0f;
+}
+
+  
+  .cover {
+    position: relative;
+    text-align: center;
+    color: white;
+  }
+  
+  .cover {
+    position: relative;
+    height: 500px; /* Ajusta esto según la altura deseada para la imagen de fondo */
+    background-image: url('/public/img/cover/cupcake-cover.jpg'); /* Ruta de tu imagen de fondo */
+    background-size: cover; /* Cubre el área completa del contenedor */
+    background-position: center; /* Centra la imagen en el contenedor */
+    border-radius: 0; /* Si quieres bordes redondeados, ajústalos aquí */
+  }
+  
+  .cover-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 85px;
+    color: #ffffff; /* Esto hará que el texto sea blanco */
+    background: rgba(0, 0, 0, 0.5); /* Fondo semitransparente para el texto */
+    padding: 10px;
+    border-radius: 8px; /* Bordes redondeados para la etiqueta del texto */
+    font-family: 'Arial', sans-serif; /* Puedes cambiar la fuente si lo deseas */
+    font-weight: bold;
+  }
+  
+  
+  .navbar h3 {
+    color: #333; /* Color más oscuro para mejor visibilidad */
+    margin-left: 20px; /* Ajusta según sea necesario para alinear con el diseño de la imagen */
+  }
+  
+  .navbar ul {
+    list-style: none;
+    display: flex;
+    margin-right: 20px; /* Ajusta según sea necesario para alinear con el diseño de la imagen */
+  }
+  
+  .navbar ul li {
+    padding: 0 15px;
+  }
+  
+  .navbar a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold; /* Opcional: si deseas que el menú de navegación sea en negrita */
+  }
+
+  .gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Tres columnas */
+  grid-auto-rows: 300px; /* Altura fija para cada fila */
+  gap: 20px; /* Espacio entre elementos */
+  padding: 20px; /* Padding alrededor de la galería */
+  background-color: #f9f9f9; /* Color de fondo para toda la galería */
+}
+
+.gallery-item {
+  display: flex;
+  flex-direction: column; /* Elementos en columna */
+  justify-content: center; /* Centrado vertical */
+  align-items: center; /* Centrado horizontal */
+  border-radius: 8px; /* Bordes redondeados */
+  overflow: hidden;
+  background-color: #fff; /* Fondo blanco para cada ítem */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Sombra sutil */
+  transition: box-shadow 0.3s ease; /* Transición suave para la sombra */
+}
+
+.gallery-item:hover {
+  box-shadow: 0 12px 24px rgba(0,0,0,0.2); /* Sombra al hacer hover */
+}
+
+.gallery-image {
+  width: 100%; /* La imagen ocupa todo el ancho */
+  height: 100%; /* La imagen ocupa toda la altura disponible */
+  object-fit: cover; /* Asegura que el contenido de la imagen se cubra adecuadamente */
+  border-radius: 8px 8px 0 0; /* Bordes redondeados en la parte superior */
+}
+
+.product-name {
+  width: 100%; /* El texto ocupa todo el ancho */
+  height: auto;
+  padding: 10px; /* Padding para el nombre del producto */
+  text-align: center; /* Texto centrado */
+  font-weight: bold; /* Texto en negrita */
+  text-transform: uppercase; /* Texto en mayúsculas */
+  font-size: 1em; /* Tamaño de la fuente */
+  background-color: #f7f7f7; /* Fondo para el texto */
+  margin-bottom: 30px;
+}
+
+footer {
+  width: 100%;
+  background-color: rgb(51,3,0);
+  clear: both;
+}
+
+.footer .group-1 {
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 50px;
+  padding: 45px 0px;
+}
+
+.footer .group-1 .box figure {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer .group-1 .box figure h1 a{
+  color: white;
+  font-size: 50px;
+  text-decoration: none;
+}
+
+.footer .group-1 .box figure img:hover {
+  transform: scale(1.2);
+}
+
+.footer .group-1 .box h2 {
+  color: white;
+  margin-bottom: 25px;
+  font-size: 20px;
+  text-align: center;
+}
+
+.footer .group-1 .box p {
+  margin-bottom: 10px;
+  text-align: center;
+  color: white;
+}
+
+.footer .group-1 .socialMedia a {
+  display: inline-block;
+  text-decoration: none;
+  font-size: 60px;
+  width: 45px;
+  height: 45px;
+  text-align: center;
+  line-height: 45px;
+  color: white;
+  margin-right: 0px;
+  margin-left: 50px;
+}
+
+.footer .group-1 .socialMedia a:hover {
+  transform: scale(1.3);
+  color: #ffbc0f;
+}
+
+.footer .group-2 {
+  background-color: rgb(32,6,0);
+  color: #fff;
+  text-align: center;
+  padding: 15px 10px;
+}
+
+.footer .group-2 small {
+  font-size: 25px;
+}

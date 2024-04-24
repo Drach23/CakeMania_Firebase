@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pastelería Gourmet</title>
+<link rel="stylesheet" href="/public/css/products-milkshake.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+</head>
+<body>
+
+<header class="header">
+        <div class="logo">
+            <h1><a href="/">Pastelerias Gourmet</a></h1>
+        </div>
+        <nav>
+            <ul class="navLinks">
+                <li><a href="#">Productos</a></li>
+                <li><a href="#aboutUs">Sobre nosotros</a></li>
+                <li><a href="#">Sucursales</a></li>
+            </ul>
+        </nav>
+    </header>
+
+<div class="cover">
+  <div class="cover-text">BATIDOS</div>
+</div>
+
+<div class="gallery">
+  {{#each products}}
+    <div class="gallery-item">
+      <!-- Reemplaza la URL estática con la URL dinámica obtenida de cada producto -->
+      <img src="{{this.imageUrl}}" alt="{{this.productName}}" class="gallery-image">
+      <h3 class="product-name">{{this.productName}}</h3>
+    </div>
+  {{/each}}
+</div>
+</body>
+ <footer class="footer">
+        <div class="group-1">
+            <div class="box">
+                <figure>
+                    <h1><a href="/">Pastelerias Gourmet</a></h1>
+                </figure>
+            </div>
+            <div class="box">
+                <h2>SOBRE NOSOTROS</h2>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Numquam, assumenda!</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, unde.</p>
+            </div>
+            <div class="box">
+                <h2>SIGUENOS EN NUESTRAS REDES SOCIALES</h2>
+                <div class="socialMedia">
+                    <a href="#" class="fa-brands fa-facebook"></a>
+                    <a href="#" class="fa-brands fa-instagram"></a>
+                    <a href="#" class="fa-brands fa-tiktok"></a>
+                </div>
+            </div>
+        </div>
+        <div class="group-2">
+            <small>&copy;2023 <b>PASTELERIAS GOURMET | Todos los derechos reservados</small>
+        </div>
+    </footer>
+</html>

@@ -1,0 +1,234 @@
+body, h1, h2, h3, p {
+    margin: 0;
+    padding: 0;
+  }
+  body {
+    font-family: 'Arial', sans-serif;
+  }
+  /*:::::Header Styles:::::*/
+.header {
+  background-color: rgb(51,3,0);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 85px;
+  padding: 5px 10%;
+}
+
+header .logo h1 a{
+  cursor: pointer;
+  font-size: 30px;
+  color:white;
+  pointer-events:painted;
+  user-select: none;
+  text-decoration: none;
+}
+
+.header .logo img {
+  height: 80px;
+  width: auto;
+}
+
+.header .logo img:hover {
+  transform: scale(1.2);
+}
+
+
+.header .navLinks li {
+  display: inline-block;
+  padding: 0 20px;
+  user-select: none;
+}
+
+.header .navLinks li:hover {
+  transform: scale(1.1);
+}
+
+.header .navLinks a {
+  font-size: 26px;
+  text-decoration: none;
+  color: white;
+  transition: all 0.3s;
+  user-select: none;
+}
+
+.header .navLinks li a:hover {
+  color: #ffbc0f;
+}
+/* seccion de el hero y la galeria */
+.hero-section {
+  background-image: url('/public/img/cover/products-cover.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 500px; /* Ajustar según el aspecto de tu imagen */
+}
+
+.product-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 15px;
+}
+
+.product-item {
+  flex: 1 0 21%; /* Controla el ancho de las tarjetas */
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column; /* Organiza la imagen y el título en una columna */
+  align-items: stretch; /* Alinea los hijos a lo largo del eje transversal */
+}
+
+.product-item a{
+  text-decoration: none;
+}
+
+.product-item img {
+  width: 100%;
+  height: 400px; /* Altura fija para todas las imágenes */
+  object-fit: cover; /* Asegura que la imagen cubra el área sin estirarse */
+  display: block;
+}
+
+.product-item h2 {
+  font-size: 1.2em;
+  color: #333;
+  padding: 10px 15px;
+  background-color: #fafafa; /* Fondo claro para el título de cada tarjeta */
+  text-transform: uppercase; /* Opcional: transforma el texto a mayúsculas */
+  flex-grow: 1; /* Permite que el título llene el espacio restante */
+  display: flex;
+  align-items: center; /* Centra el título verticalmente */
+  justify-content: center; /* Centra el título horizontalmente */
+  border-top: 1px solid #ccc; /* Línea que separa la imagen del título */
+  margin: 0;
+  box-shadow: 0 -5px 10px rgba(0,0,0,0.05); /* Sombra suave en la parte superior interna del título */
+}
+
+.product-section{
+  text-align: center;
+}
+.product-section h1 {
+  color: #333; /* Color del texto */
+  font-size: 3em; /* Tamaño del texto */
+  font-family: 'Helvetica Neue', sans-serif; /* Fuente más elegante, si está disponible */
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.2); /* Sombra de texto para profundidad */
+  margin-bottom: 50px; /* Espacio debajo del título */
+  padding: 25px 25px; /* Añade un poco de relleno a los lados si es necesario */
+  display: inline-block; /* Permite que la sombra de texto tenga efecto en todos los lados */
+  background-color: rgba(255, 255, 255, 0.7); /* Fondo semitransparente para mejorar el contraste */
+  border-radius: 10px; /* Bordes redondeados */
+  box-shadow: 0px 8px 16px rgba(0,0,0,0.1); /* Sombra suave alrededor del título */
+  transition: all 0.3s ease; /* Transición suave para hover */
+  display: block;
+
+}
+
+.product-section h1:hover {
+  transform: translateY(-5px); /* Eleva el título */
+  text-shadow: 3px 3px 6px rgba(0,0,0,0.3); /* Sombra de texto más pronunciada */
+  background-color: rgba(255, 255, 255, 0.9); /* Fondo más opaco al pasar el mouse */
+}
+
+
+/* Añadir un efecto de hover a las tarjetas */
+.product-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+
+
+  
+  /* seccion del footer */
+footer {
+  width: 100%;
+  background-color: rgb(51,3,0);
+  clear: both;
+}
+
+.footer .group-1 {
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 50px;
+  padding: 45px 0px;
+}
+
+.footer .group-1 .box figure {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer .group-1 .box figure h1 a{
+  color: white;
+  font-size: 40px;
+  text-decoration: none;
+}
+
+.footer .group-1 .box figure img:hover {
+  transform: scale(1.2);
+}
+
+.footer .group-1 .box h2 {
+  color: white;
+  margin-bottom: 25px;
+  font-size: 20px;
+  text-align: center;
+}
+
+.footer .group-1 .box p {
+  margin-bottom: 10px;
+  text-align: center;
+  color: white;
+}
+
+.footer .group-1 .socialMedia a {
+  display: inline-block;
+  text-decoration: none;
+  font-size: 60px;
+  width: 45px;
+  height: 45px;
+  text-align: center;
+  line-height: 45px;
+  color: white;
+  margin-right: 0px;
+  margin-left: 50px;
+}
+
+.footer .group-1 .socialMedia a:hover {
+  transform: scale(1.3);
+  color: #ffbc0f;
+}
+
+.footer .group-2 {
+  background-color: rgb(32,6,0);
+  color: #fff;
+  text-align: center;
+  padding: 15px 10px;
+}
+
+.footer .group-2 small {
+  font-size: 25px;
+}
+
+/* Media query para ajustar el diseño en pantallas más pequeñas */
+@media (max-width: 768px) {
+  .product-item {
+      flex: 1 0 46%; /* Tarjetas más grandes para pantallas más pequeñas */
+  }
+}
+
+@media (max-width: 480px) {
+  .product-item {
+      flex: 1 0 100%; /* Una tarjeta por fila en pantallas muy pequeñas */
+  }
+}
