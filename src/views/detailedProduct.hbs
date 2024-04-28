@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Detalle del Producto</title>
+<link rel="stylesheet" href="/public/css/detailedProduct.css">
+</head>
+<body>
+
+<div class="navbar">
+  <a href="#">Pastelerías Gourmet</a>
+  <a href="#">Productos</a>
+  <a href="#">Pedidos</a>
+  <a href="#">Mapa</a>
+  <a href="#">Usuario</a>
+</div>
+
+<div class="container">
+    {{#each products}}
+  <div class="product-image">
+    <!-- Aquí iría la imagen del producto -->
+    <img src="{{this.imageUrl}}" alt="{{this.productName}}">
+  </div>
+  <div class="product-details">
+     <h1 class="product-title">{{this.productName}}</h1>
+   <p class="product-price">Precio: {{this.productPrice}}</p>
+    <div class="quantity-selector">
+      <button>-</button>
+      <input type="number" value="1">
+      <button>+</button>
+    </div>
+    <button class="add-to-cart">Agregar Al Carrito</button>
+    <div class="description">
+      <h2>Detalles</h2>
+           <p>{{this.productDescription}}</p>
+    </div>
+  </div>
+  {{/each}}
+</div>
+
+</body>
+</html>

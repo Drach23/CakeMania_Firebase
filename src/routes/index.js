@@ -395,4 +395,29 @@ router.post("/new-order",async (req,res)=>{
 router.get("/admin",async(req,res)=>{
   res.render("adminLanding")
 })
+
+//full detailedProduct view
+router.get("/detailedProduct/:productId", async (req, res) => {
+  try {
+    const productId = req.params.productId;
+    const productSnapshot = await db.collection('products-cake').doc(productId).get();
+    const productData = productSnapshot.data();
+
+    // Obtiene la URL de la imagen asociada al producto
+    const imageUrl = await getImageUrl(productData.imageName);
+
+    // Combina los datos del producto con la URL de la imagen
+    const productWithImage = {
+      ...productData,
+      imageUrl: imageUrl
+    };
+
+    res.render('detailedProduct', { products: [productWithImage] });
+  } catch (error) {
+    console.error("Error al obtener los detalles del producto:", error);
+    res.status(500).send("Error interno en el servidor");
+  }
+});
+
+
 module.exports = router;

@@ -127,6 +127,25 @@ header .logo h1 a{
   background-color: #fff; /* Fondo blanco para cada ítem */
   box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Sombra sutil */
   transition: box-shadow 0.3s ease; /* Transición suave para la sombra */
+  position: relative;
+}
+
+.gallery-item a {
+  color: black; /* O el color que desees para el texto */
+  text-decoration: none; /* Para quitar el subrayado por defecto de los enlaces */
+}
+.gallery-item h3 {
+  position: absolute; /* Posiciona el título en relación con su padre .gallery-item */
+  bottom: 0; /* Coloca el título en la parte inferior del contenedor */
+  left: 0; /* Alinea el título a la izquierda del contenedor */
+  width: 100%; /* El título ocupa toda la anchura del contenedor */
+  background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente para que el texto resalte */
+  color: white; /* Color del texto en blanco para contraste */
+  padding: 10px 0; /* Relleno para espaciado vertical */
+  text-align: center; /* Alinea el texto al centro */
+  font-size: 1.2em; /* Tamaño de fuente para legibilidad */
+  box-sizing: border-box; /* Asegura que el padding no afecte el ancho total */
+  transition: all 0.3s; /* Transición suave para efectos de hover */
 }
 
 .gallery-item:hover {

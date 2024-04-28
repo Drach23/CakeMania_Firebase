@@ -28,12 +28,14 @@
 
 <div class="gallery">
   {{#each products-cake}}
-    <div class="gallery-item">
-      <!-- Reemplaza la URL estática con la URL dinámica obtenida de cada producto -->
+  <div class="gallery-item">
+    <!-- Reemplaza la URL estática con la URL dinámica obtenida de cada producto -->
+    <a href="/detailedProduct/{{this.id}}">
       <img src="{{this.imageUrl}}" alt="{{this.productName}}" class="gallery-image">
       <h3 class="product-name">{{this.productName}}</h3>
-    </div>
-  {{/each}}
+    </a>
+  </div>
+{{/each}}
 </div>
 </body>
  <footer class="footer">
