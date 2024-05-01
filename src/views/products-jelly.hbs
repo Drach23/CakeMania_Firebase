@@ -29,10 +29,11 @@
 <div class="gallery">
   {{#each products-jelly}}
     <div class="gallery-item">
-      <!-- Reemplaza la URL estática con la URL dinámica obtenida de cada producto -->
+        
+     <a href="/detailedProduct/{{this.productCategory}}/{{this.id}}">
       <img src="{{this.imageUrl}}" alt="{{this.productName}}" class="gallery-image">
       <h3 class="product-name">{{this.productName}}</h3>
-    </div>
+    </a>
   {{/each}}
 </div>
 </body>

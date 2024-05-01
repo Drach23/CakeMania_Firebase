@@ -3,6 +3,8 @@ const { db } = require('../firebase')
 const multer = require('multer');
 const { uploadImageToStorage } = require('../public/js/imageUpload.js');
 const { Storage } = require('@google-cloud/storage');
+const { v4: uuidv4 } = require('uuid');
+
 
 
 
@@ -146,33 +148,22 @@ router.post('/new-product', async (req, res) => {
   const file = req.file; // Obtiene el archivo de la solicitud
 
   try {
-    // Sube la imagen a Firebase Storage
-    const imageUrl = await uploadImageToStorage(file, file.originalname);
+    // Genera un nombre único para la imagen utilizando UUID
+    const imageFileName = `${uuidv4()}.${file.originalname.split('.').pop()}`;
 
-    let collectionName;
-    // Determina la colección en función de la categoría seleccionada
-    switch (productCategory) {
-      case "muffins":
-        collectionName = "products-cupcake";
-        break;
-      case "pasteles":
-        collectionName = "products-cakes";
-        break;
-      case "batidos":
-        collectionName = "products-milkshake";
-        break;
-      case "pays":
-        collectionName = "products-pie";
-        break;
-      case "panes":
-        collectionName = "products-bake";
-        break;
-      case "gelatinas":
-        collectionName = "products-jelly";
-        break;
-      default:
-        throw new Error("Categoría de producto no válida");
-    }
+    // Sube la imagen a Firebase Storage
+    const imageUrl = await uploadImageToStorage(file, imageFileName);
+
+    const categoryToCollection = {
+      "cupcake": "products-cupcake",
+      "cakes": "products-cake",
+      "milkshake": "products-milkshake",
+      "pie": "products-pie",
+      "bake": "products-bake",
+      "jelly": "products-jelly"
+    };
+
+    const collectionName = categoryToCollection[productCategory];
 
     // Guarda el producto en la base de datos en la colección correspondiente
     await db.collection(collectionName).add({
@@ -180,7 +171,7 @@ router.post('/new-product', async (req, res) => {
       productDescription,
       productPrice,
       productCategory,
-      imageName: file.originalname // Guarda el nombre del archivo de la imagen en la base de datos
+      imageName: imageFileName // Guarda el nombre del archivo de la imagen en la base de datos
     });
 
     res.redirect(`/products`);
@@ -397,10 +388,21 @@ router.get("/admin",async(req,res)=>{
 })
 
 //full detailedProduct view
-router.get("/detailedProduct/:productId", async (req, res) => {
+router.get("/detailedProduct/:category/:productId", async (req, res) => {
   try {
+
+    const categoryToCollection = {
+      "cupcake": "products-cupcake",
+      "cakes": "products-cake",
+      "milkshake": "products-milkshake",
+      "pie": "products-pie",
+      "bake": "products-bake",
+      "jelly": "products-jelly"
+    };
+
     const productId = req.params.productId;
-    const productSnapshot = await db.collection('products-cake').doc(productId).get();
+    const collectionName = categoryToCollection[req.params.category];
+    const productSnapshot = await db.collection(collectionName).doc(productId).get();
     const productData = productSnapshot.data();
 
     // Obtiene la URL de la imagen asociada al producto
