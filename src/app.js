@@ -29,8 +29,11 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 
 app.use(upload.single('productImage')); // Usa Multer antes de tus rutas
+//importar la ruta de usuarios
 
-app.use(require('./routes/index'))
+app.use(require('./routes/index'));
+app.use(require('./routes/userRoutes'));
+app.use(require('./routes/productRoutes'));
 
 //rutas publicas del css y obtencion de recursos esteticos.
 app.use('/public/css',express.static(path.join(__dirname, '/public/css')))
