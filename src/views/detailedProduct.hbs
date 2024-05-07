@@ -5,16 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Detalle del Producto</title>
 <link rel="stylesheet" href="/public/css/detailedProduct.css">
+<script src="/public/js/plus-minusButton.js"></script>
 </head>
 <body>
 
-<div class="navbar">
-  <a href="#">Pastelerías Gourmet</a>
-  <a href="#">Productos</a>
-  <a href="#">Pedidos</a>
-  <a href="#">Mapa</a>
-  <a href="#">Usuario</a>
-</div>
+<header class="header">
+        <div class="logo">
+            <h1><a href="/index">Pastelerias Gourmet</a></h1>
+        </div>
+        <nav>
+            <ul class="navLinks">
+                <li><a href="/products">Productos</a></li>
+                <li><a href="#aboutUs">Sobre nosotros</a></li>
+                <li><a href="#">Sucursales</a></li>
+            </ul>
+        </nav>
+        <a href="/login" class="btn"><button>Iniciar sesion</button></a>
+    </header>
 
 <div class="container">
     {{#each products}}
@@ -26,9 +33,9 @@
      <h1 class="product-title">{{this.productName}}</h1>
    <p class="product-price">Precio: {{this.productPrice}}</p>
     <div class="quantity-selector">
-      <button>-</button>
-      <input type="number" value="1">
-      <button>+</button>
+      <button name="minusButton" type="button" onclick="minus()">-</button>
+      <input type="number" value="1" id="input_cant">
+      <button name="addButton" type="button" onclick="more()">+</button>
     </div>
     <button class="add-to-cart">Agregar Al Carrito</button>
     <div class="description">
