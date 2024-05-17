@@ -19,48 +19,179 @@ h1 {
     color: #333;
 }
 
-.cart-item {
+.header {
+    background-color: rgb(51,3,0);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 85px;
+    padding: 5px 10%;
+  }
+  
+  header .logo h1 a{
+    cursor: pointer;
+    font-size: 30px;
+    color:white;
+    pointer-events:painted;
+    user-select: none;
+    text-decoration: none;
+  }
+  
+  .header .logo img {
+    height: 80px;
+    width: auto;
+  }
+  
+  .header .logo img:hover {
+    transform: scale(1.2);
+  }
+  
+  
+  .header .navLinks li {
+    display: inline-block;
+    padding: 0 20px;
+    user-select: none;
+  }
+  
+  .header .navLinks li:hover {
+    transform: scale(1.1);
+  }
+  
+  .header .navLinks a {
+    font-size: 26px;
+    text-decoration: none;
+    color: white;
+    transition: all 0.3s;
+    user-select: none;
+  }
+  
+  .header .navLinks li a:hover {
+    color: #ffbc0f;
+  }
+  
+  /* Estilos para el menú desplegable */
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .login_welcomeMessage {
+    background-color: #8B0000; /* Fondo oscuro que combina con el encabezado */
+    color: #FFFFFF; /* Texto blanco para contraste */
+    border-radius: 5px; /* Bordes redondeados */
+    padding: 10px 20px; /* Espaciado interno */
+    margin-right: 20px; /* Espaciado desde el borde derecho */
+    font-size: 16px; /* Tamaño de fuente */
+    font-family: 'Arial', sans-serif; /* Familia de fuentes */
+    display: inline-block; /* Mostrar en línea con otros elementos */
+    text-align: center; /* Centrar el texto */
+    cursor: pointer; /* Cambiar el cursor al pasar el mouse */
+  }
+  
+  /* Estilos para el contenido del menú desplegable */
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0; /* Alinear a la derecha */
+    background-color: rgba(125, 137, 155,0.7);
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .dropdown-content a:hover {
+    background-color:rgb(76, 88, 103)
+  }
+  
+  /* Mostrar el menú desplegable al pasar el mouse */
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  
+  
+  .cart-container {
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .cart-container h1 {
+    text-align: center;
+    color: #4b2e2e;
+    margin-bottom: 30px;
+  }
+  
+  .cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
     border-bottom: 1px solid #ccc;
-    padding: 10px 0;
+  }
+  
+  .product-info {
+    flex: 1;
+  }
+  
+  .quantity-buttons {
     display: flex;
     align-items: center;
-}
-
-.cart-item:last-child {
-    border-bottom: none;
-}
-
-.product-info {
-    flex-grow: 1;
-    padding-left: 10px;
-}
-
-.product-info p {
-    margin: 5px 0;
-}
-
-.quantity-buttons button {
-    background-color: #4CAF50;
-    border: none;
+  }
+  
+  .quantity-buttons button {
+    background-color: #4b2e2e;
     color: white;
-    padding: 8px 12px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 14px;
+    border: none;
+    padding: 10px 20px;
     margin: 0 5px;
     cursor: pointer;
     border-radius: 4px;
-}
-
-.quantity-buttons button:hover {
-    background-color: #45a049;
-}
-
-.remove-button {
-    background-color: #f44336;
-}
-
-.remove-button:hover {
-    background-color: #da190b;
-}
+    font-size: 16px;
+  }
+  
+  .quantity-buttons button:hover {
+    background-color: #3e2723;
+  }
+  
+  .remove-button {
+    background-color: #b71c1c;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin-right: 10px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 16px;
+  }
+  
+  .remove-button:hover {
+    background-color: #8e0000;
+  }
+  
+  .purchase-button {
+    display: block;
+    width: 200px;
+    padding: 15px 30px;
+    margin: 30px auto 0;
+    background-color: #4b2e2e;
+    color: white;
+    text-align: center;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 18px;
+  }
+  
+  .purchase-button:hover {
+    background-color: #754a43;
+  }
