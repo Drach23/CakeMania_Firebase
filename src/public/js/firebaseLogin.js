@@ -36,6 +36,7 @@ async function userLogin() {
     if (userDocSnap.exists()) {
       const userData = userDocSnap.data();
       localStorage.setItem("userData", JSON.stringify(userData));
+      localStorage.setItem("userId", user.uid);
 
       alert("Inicio de sesión exitoso");
       window.location.href = "/"; // Redirecciona al inicio
@@ -49,13 +50,29 @@ async function userLogin() {
   }
 }
 
-const buttonLogin = document.querySelector(".login__button");
-if (buttonLogin) {
-  buttonLogin.addEventListener("click", (event) => {
-    event.preventDefault(); // Evita la recarga de la página
-    userLogin(); // Llama a la función de inicio de sesión
-  });
-}
+document.addEventListener("DOMContentLoaded", () => {
+  console.log("DOM fully loaded and parsed");
+  updateUserInfo();
+
+  const buttonLogin = document.querySelector(".login__button");
+  if (buttonLogin) {
+    buttonLogin.addEventListener("click", (event) => {
+      event.preventDefault(); // Evita la recarga de la página
+      userLogin(); // Llama a la función de inicio de sesión
+    });
+  }
+
+  const userInfoDiv = document.getElementById("user-info");
+  if (userInfoDiv) {
+    userInfoDiv.addEventListener("click", (event) => {
+      const logoutButton = event.target.closest("#logoutButton");
+      if (logoutButton) {
+        event.preventDefault();
+        userLogout();
+      }
+    });
+  }
+});
 
 function getUserDataFromLocalStorage() {
   const userDataString = localStorage.getItem("userData");
@@ -71,6 +88,7 @@ function updateUserInfo() {
     `<div class="dropdown">
     <p class="login_welcomeMessage">Bienvenido, ${userData.username}</p>
     <div class="dropdown-content">
+      <a href="/cart">Carrito de compras</a>
       <a href="/profile">Configuración de perfil</a>
       <a href="#" id="logoutButton">Cerrar sesión</a>
     </div>
@@ -79,12 +97,14 @@ function updateUserInfo() {
     userInfoDiv.innerHTML = `<a class="btn" href="/login" class="btn"><button>Iniciar sesión</button></a>`;
   }
 }
+
 // Función para cerrar sesión
 function userLogout() {
   const auth = getAuth();
   signOut(auth).then(() => {
     // Borrar los datos del usuario del localStorage
     localStorage.removeItem("userData");
+    localStorage.removeItem("userId");  // Remueve el userId del localStorage
 
     // Redireccionar al usuario a la página de inicio de sesión o a otra página
     window.location.href = "/login";
@@ -94,19 +114,4 @@ function userLogout() {
   });
 }
 
-// Adjuntar evento de clic al botón de logout después de que se cargue el DOM
-const userInfoDiv = document.getElementById("user-info");
-userInfoDiv.addEventListener("click", (event) => {
-  const logoutButton = event.target.closest("#logoutButton");
-  if (logoutButton) {
-    event.preventDefault();
-    userLogout();
-  }
-});
-
-
-
-document.addEventListener("DOMContentLoaded", () => {
-  console.log("DOM fully loaded and parsed");
-  updateUserInfo();
-});
+export { app, auth, db };
