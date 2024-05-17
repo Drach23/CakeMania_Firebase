@@ -101,3 +101,7 @@ exports.updateUser = async (req, res) => {
 exports.adminLanding = async (req, res) => {
   res.render("adminLanding")
   };
+
+  exports.cart =async(req,res)=>{
+    res.render("shoppingCart")
+  }

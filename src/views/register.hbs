@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="/public/css/register.css">
     {{!-- Javascript de validacion y envio de datos --}}
     <script type="module" src="/public/js/firebaseAuth.js"></script>
+    <script type="module" src="/public/js/firebaseLogin.js"></script>
 </head>
 
 <header class="header">
@@ -20,6 +21,9 @@
                 <li><a href="#">Mapa</a></li>
             </ul>
         </nav>
+        <div id="user-info">
+        <!-- Aquí se mostrará el nombre del usuario o el botón de inicio de sesión -->
+        </div>
     </header>
 <form class="formRegister" id="form" action="/new-user" method="POST">
     <div class="formTittle">
