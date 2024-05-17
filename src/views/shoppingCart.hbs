@@ -1,42 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cakemania - Usuarios</title>
-    <link rel="stylesheet" href="/public/css/showUsers.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Carrito de Compras</title>
+<link rel="stylesheet" href="/public/css/showCart.css">
+<script type="module" src="/public/js/showCart.js"></script>
 </head>
 <body>
-      <header class="page-header">
-        <a href="/admin" class="dashboard-link">Volver al Dashboard</a>
-        <h1>Carrito de compras</h1>
-      </header>
-    <div class="table-container">
-        <table class="user-table">
-            <thead>
-                <tr>
-                    <th class="column-name">Imagen</th>
-                    <th class="column-email">Producto</th>
-                    <th class="column-phone">Cantidad</th>
-                    <th class="column-username">Precio</th>
-                    <th class="column-actions">Acciones</th>
-                </tr>
-            </thead>
-            <tbody>
-                {{#each users}}
-                <tr>
-                    <td class="user-name">{{firstname}} {{lastname}}</td>
-                    <td class="user-email">{{email}}</td>
-                    <td class="user-phone">{{phone}}</td>
-                    <td class="user-username">{{username}}</td>
-                    <td class="user-actions">
-                        <a href="/confirmDelete-user/{{id}}" class="delete-link">Eliminar usuario</a>
-                        <a href="/edit-user/{{id}}" class="edit-link">Editar usuario</a>
-                    </td>
-                </tr>
-                {{/each}}
-            </tbody>
-        </table>
-    </div>
+
+<div class="container">
+    <h1>Carrito de Compras</h1>
+
+    <div id="cart-items"></div>
+</div>
+
+<script src="carrito.js"></script>
+
 </body>
 </html>

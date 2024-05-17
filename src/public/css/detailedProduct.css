@@ -79,6 +79,52 @@ header .logo h1 a{
   transform: scale(1.1);
 }
 
+/* Estilos para el menú desplegable */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.login_welcomeMessage {
+  background-color: #8B0000; /* Fondo oscuro que combina con el encabezado */
+  color: #FFFFFF; /* Texto blanco para contraste */
+  border-radius: 5px; /* Bordes redondeados */
+  padding: 10px 20px; /* Espaciado interno */
+  margin-right: 20px; /* Espaciado desde el borde derecho */
+  font-size: 16px; /* Tamaño de fuente */
+  font-family: 'Arial', sans-serif; /* Familia de fuentes */
+  display: inline-block; /* Mostrar en línea con otros elementos */
+  text-align: center; /* Centrar el texto */
+  cursor: pointer; /* Cambiar el cursor al pasar el mouse */
+}
+
+/* Estilos para el contenido del menú desplegable */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  right: 0; /* Alinear a la derecha */
+  background-color: rgba(125, 137, 155,0.7);
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color:rgb(76, 88, 103)
+}
+
+/* Mostrar el menú desplegable al pasar el mouse */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
 .container {
   display: flex;
   justify-content: center;

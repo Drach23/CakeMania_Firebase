@@ -6,21 +6,27 @@
 <title>Detalle del Producto</title>
 <link rel="stylesheet" href="/public/css/detailedProduct.css">
 <script src="/public/js/plus-minusButton.js"></script>
+<script type="module" src="/public/js/firebaseLogin.js"></script>
+<script type="module" src="/public/js/addToCart.js"></script>
 </head>
 <body>
 
 <header class="header">
         <div class="logo">
-            <h1><a href="/index">Pastelerias Gourmet</a></h1>
+            <h1><a href="/">Pastelerias Gourmet</a></h1>
         </div>
         <nav>
             <ul class="navLinks">
-                <li><a href="/products">Productos</a></li>
+                <li><a href="#">Productos</a></li>
                 <li><a href="#aboutUs">Sobre nosotros</a></li>
                 <li><a href="#">Sucursales</a></li>
+                <li><a href="/cart">Carrito</a></li>
             </ul>
         </nav>
-        <a href="/login" class="btn"><button>Iniciar sesion</button></a>
+        <div id="user-info">
+        <!-- Aquí se mostrará el nombre del usuario o el botón de inicio de sesión -->
+        </div>
+
     </header>
 
 <div class="container">
@@ -37,7 +43,7 @@
       <input type="number" value="1" id="input_cant">
       <button name="addButton" type="button" onclick="more()">+</button>
     </div>
-    <button class="add-to-cart">Agregar Al Carrito</button>
+    <button class="add-to-cart" >Agregar Al Carrito</button>
     <div class="description">
       <h2>Detalles</h2>
            <p>{{this.productDescription}}</p>
