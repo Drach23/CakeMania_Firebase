@@ -20,7 +20,6 @@
                 <li><a href="#">Productos</a></li>
                 <li><a href="#aboutUs">Sobre nosotros</a></li>
                 <li><a href="#">Sucursales</a></li>
-                <li><a href="/cart">Carrito</a></li>
             </ul>
         </nav>
         <div id="user-info">
@@ -33,7 +32,7 @@
     {{#each products}}
   <div class="product-image">
     <!-- Aquí iría la imagen del producto -->
-    <img src="{{this.imageUrl}}" alt="{{this.productName}}">
+    <img src="{{this.imageUrl}}" alt="{{this.productName}}" data-image-url="{{this.imageUrl}}">
   </div>
   <div class="product-details">
      <h1 class="product-title">{{this.productName}}</h1>

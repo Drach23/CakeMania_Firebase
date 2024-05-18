@@ -115,6 +115,12 @@ h1 {
     display: block;
   }
   
+  .product-info img {
+    max-width: 200px; /* Limita el ancho máximo de la imagen */
+    max-height: 200px; /* Limita la altura máxima de la imagen */
+    margin-right: 10px; /* Añade un pequeño margen a la derecha para separar la imagen de los detalles */
+}
+
   
   .cart-container {
     max-width: 800px;
