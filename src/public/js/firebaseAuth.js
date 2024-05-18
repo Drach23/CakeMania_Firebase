@@ -1,26 +1,14 @@
 // Importa los métodos necesarios para la autenticación
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-analytics.js";
-import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-firestore.js";
+import { getFirestore, doc, setDoc, getDoc } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-firestore.js";
 import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-auth.js"; // Asegúrate de importar correctamente firebase-auth.js
 
+import { auth, db } from '/public/js/firebaseLogin.js';
+
+import { userLogin } from '/public/js/firebaseLogin.js';
 
 
-const firebaseConfig = {
-  apiKey: "AIzaSyDNip1hN7oluDfRsVcyZ04-RWMmyQQkdvM",
-  authDomain: "cakemania-908db.firebaseapp.com",
-  projectId: "cakemania-908db",
-  storageBucket: "cakemania-908db.appspot.com",
-  messagingSenderId: "688269458179",
-  appId: "1:688269458179:web:6d59d5ef3ad2ce087d4736",
-  measurementId: "G-38F4RMDQF4"
-};
-
-// Inicializa Firebase
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
-const db = getFirestore(app);
-const auth = getAuth(); // Obtiene el objeto de autenticación
 
 // Referencias a los campos de entrada
 const inputName = document.getElementById("inputName");
@@ -62,7 +50,9 @@ try{
     // Guarda los datos del usuario en Firestore
     await setDoc(doc(db, "users", userId), userData);
     alert("Usuario Registrado exitosamente")
-    console.log("Usuario registrado exitosamente.");
+    // Inicia sesión automáticamente después de crear la cuenta
+    await userLogin();
+
     clearForm();
     // Aquí puedes agregar lógica adicional, como mostrar un mensaje de éxito o redirigir a otra página
   } catch (error) {

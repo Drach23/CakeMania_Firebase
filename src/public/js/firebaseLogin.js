@@ -115,3 +115,4 @@ function userLogout() {
 }
 
 export { app, auth, db };
+export { userLogin };
