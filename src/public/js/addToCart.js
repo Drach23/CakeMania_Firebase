@@ -9,12 +9,12 @@ import { auth, db } from '/public/js/firebaseLogin.js';
 // Resto del código de addToCart.js...
 
 // Función para agregar elementos al carrito asociados con el usuario autenticado
-async function addToCart(productName, price, quantity, description) {
+async function addToCart(productName, price, quantity, description, imageUrl) {
   try {
       const userId = auth.currentUser.uid;
       const cartRef = doc(db, "carts", userId);
       const cartData = (await getDoc(cartRef)).data() || { items: [] };
-      cartData.items.push({ productName, price, quantity, description });
+      cartData.items.push({ productName, price, quantity, description, imageUrl });
       await setDoc(cartRef, cartData);
       alert("Producto agregado al carrito:", { productName, price, quantity, description });
   } catch (error) {
@@ -54,22 +54,6 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 });
 
-function removeFromCart(index) {
-  var userId = localStorage.getItem('userId');
-  var cart = JSON.parse(localStorage.getItem(`cart_${userId}`)) || [];
-  cart.splice(index, 1);
-  localStorage.setItem(`cart_${userId}`, JSON.stringify(cart));
-  location.reload(); // Recargar la página para reflejar los cambios
-}
-
-function adjustQuantity(index, change) {
-  var userId = localStorage.getItem('userId');
-  var cart = JSON.parse(localStorage.getItem(`cart_${userId}`)) || [];
-  var item = cart[index];
-  item.quantity = Math.max(parseInt(item.quantity) + change, 1); // Asegurarse de que la cantidad nunca sea menor que 1
-  localStorage.setItem(`cart_${userId}`, JSON.stringify(cart));
-  location.reload(); // Recargar la página para reflejar los cambios
-}
 
 
 // Busca el botón "Agregar al Carrito" por su clase y agrega un event listener
@@ -79,6 +63,8 @@ document.querySelector(".add-to-cart").addEventListener("click", function() {
   var productPrice = document.querySelector(".product-price").innerText.split(":")[1].trim();
   var quantity = document.getElementById("input_cant").value;
   var productDescription = document.querySelector(".description p").innerText;
+  var imageUrl = document.querySelector(".product-image img").getAttribute("data-image-url");
   // Llama a la función addToCart con los detalles del producto
-  addToCart(productName, productPrice, quantity, productDescription);
+  addToCart(productName, productPrice, quantity, productDescription, imageUrl);
 });
+
