@@ -23,28 +23,21 @@
         <div id="user-info"></div>
     </header>
     <main>
-        <section class="login__section">
-            <div class="login__container">
-                <div class="login__avatar"></div>
-                <form class="login__form">
-                    <div class="form__group">
-                        <label for="email">Email:</label>
-                        <input type="email" id="inputEmail" placeholder="Elvisko@Gmail.Com">
-                    </div>
-                    <div class="form__group">
-                        <label for="password">Contraseña:</label>
-                        <input type="password" id="inputPassword">
-                    </div>
-                    <button type="submit" class="login__button">Iniciar Sesión</button>
-                </form>
-                <div class="login__footer">
-                    <p>¿AUN NO TIENES CUENTA? <a href="/register">DA CLICK AQUI PARA CREAR UNA</a></p>
-                </div>
+        <form class="formLogin" id="form">
+            <div class="formTittle">
+                <h4>Iniciar sesión</h4>
             </div>
-        </section>
-        <aside class="image__aside">
-            <!-- Cupcake image will be here -->
-        </aside>
+            <h4>Email:</h4>
+            <input class="controls" type="email" name="email" id="inputEmail" placeholder="Ej. elvisko@gmail.com">
+            <h4>Contraseña</h4>
+            <input class="controls" type="text" name="password" id="inputPassword" placeholder="Ingresa una contraseña">
+            <button type="button" class="buttons" onclick="EnviarDatos()"><h1>INICIAR SESIÓN</h1></button>
+            <div id="successMessage" class="success-message"></div>
+            <div id="errorMessage" class="error-message"></div>
+            <div class="register-section">
+                <p>¿No tienes cuenta? <a href="./register">Crea una aquí</a></p>
+            </div>
+        </form>
     </main>
 </body>
 <footer class="footer">
