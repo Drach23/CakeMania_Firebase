@@ -71,6 +71,48 @@ try{
   }
 }
 
+function validateForm() {
+  const firstname = inputName.value.trim();
+  const lastname = inputLastname.value.trim();
+  const phone = inputPhone.value.trim();
+  const email = inputEmail.value.trim();
+  const username = inputUsername.value.trim();
+  const password = inputPassword.value.trim();
+  const confirmPassword = inputConfirmPassword.value.trim();
+  
+  let errorMessage = "";
+
+  if (!firstname) {
+    errorMessage += "El nombre es obligatorio. ";
+  }
+  if (!lastname) {
+    errorMessage += "Los apellidos son obligatorios. ";
+  }
+  if (!phone) {
+    errorMessage += "El número de teléfono es obligatorio. ";
+  }
+  if (!email) {
+    errorMessage += "El correo electrónico es obligatorio. ";
+  }
+  if (!username) {
+    errorMessage += "El nombre de usuario es obligatorio. ";
+  }
+  if (!password) {
+    errorMessage += "La contraseña es obligatoria. ";
+  }
+  if (password !== confirmPassword) {
+    errorMessage += "Las contraseñas no coinciden. ";
+  }
+
+  if (errorMessage) {
+    document.getElementById("errorMessage").textContent = errorMessage;
+    return false;
+  } else {
+    document.getElementById("errorMessage").textContent = "";
+    return true;
+  }
+}
+
  //Escucha el evento de clic del botón "CREAR CUENTA"
 const buttonCrearCuenta = document.querySelector(".buttons");
 buttonCrearCuenta.addEventListener("click", () => {

@@ -1,16 +1,36 @@
-/* Style Reset */
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sacramento&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@200&family=Sacramento&display=swap');
+
+
+/*:::::Page Formatting:::::*/
 * {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  font-size: 20px;
+  font-family: 'Oswald', sans-serif;
 }
 
-body, button, input {
-  font-family: 'Arial', sans-serif;
+html {
+  min-height: 100%;
+  position: relative;
 }
 
+
+
+body {
+  background-color: transparent;
+  background-image: url('../img/cover/login.jpg');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+
+
+/*:::::Header Styles:::::*/
 .header {
-  background-color: rgb(51,3,0);
+  background-color: rgb(90, 9, 3);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -20,7 +40,8 @@ body, button, input {
 
 header .logo h1 a{
   cursor: pointer;
-  font-size: 30px;
+  font-family:'Sacramento',cursive;
+  font-size: 40px;
   color:white;
   pointer-events:painted;
   user-select: none;
@@ -32,7 +53,7 @@ header .logo h1 a{
   width: auto;
 }
 
-.header .logo img:hover {
+.header .logo:hover {
   transform: scale(1.2);
 }
 
@@ -58,92 +79,139 @@ header .logo h1 a{
 .header .navLinks li a:hover {
   color: #ffbc0f;
 }
-/* Main Layout Styles */
-main {
-  display: flex;
-  height: 90vh; /* Adjust height as needed */
-}
 
-.login__section {
-  flex-grow: 1;
-  background-color: #6f1d1b;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 2rem;
-}
-
-.login__container {
-  background-color: #3c0d0d;
-  padding: 2rem;
-  border-radius: 20px;
-  width: 100%;
-  max-width: 320px;
-  text-align: center;
-}
-
-.login__avatar {
-  background-color: rgba(0, 0, 0, 0.2);
-  border-radius: 50%;
-  width: 80px;
-  height: 80px;
-  margin: 0 auto 1.5rem;
-  background-image: url("/public/img/ICON/user.png");
-  background-position: center;
-  background-size: cover;
-}
-
-.login__form .form__group {
-  margin-bottom: 1rem;
-}
-
-.login__form label {
-  display: block;
-  margin-bottom: .5rem;
-  color: #fff;
-}
-
-.login__form input {
-  width: 100%;
-  padding: 0.5rem;
+.header .btn button {
+  font-weight: bold;
+  color: #1b3039;
+  padding: 9px 25px;
   border: none;
-  border-radius: 5px;
-}
-
-.login__button {
-  width: 100%;
-  padding: 0.5rem;
-  border: none;
-  border-radius: 5px;
-  background-color: #7f2f28;
-  color: white;
-  margin-top: 1rem;
+  border-radius: 50px;
+  background-color: #eceff1;
   cursor: pointer;
+  user-select: none;
 }
 
-.login__button:hover {
-  background-color: #57210d;
+.header .btn button:hover {
+  background-color: #e2f1f8;
+  color: #ffbc0f;
+  transform: scale(1.1);
 }
 
-.login__footer p {
-  color: white;
-  font-size: 0.8rem;
-  margin-top: 1.5rem;
+/*::::::::::formulario::::::::::*/
+
+  .formLogin {
+    width: 400px;
+    background:transparent;
+    backdrop-filter: blur(10px);
+    padding: 30px;
+    margin: auto;
+    margin-top: 50px;
+    border-radius: 15px;
+    font-family: 'calibri';
+    color:black;
+    box-shadow: 7px 13px 37px #000;
+    margin-bottom: 50px;
+  }
+  
+  .formLogin .formTittle h4{
+    font-family: 'Sacramento', cursive;
+    font-size: 40px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: bold;
+  }
+
+  .formLogin h4{
+    font-family: 'bradley hand itc', cursive;
+    font-size: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: bold;
+  }
+  
+  
+  .controls {
+    width: 100%;
+    background: rgb(243, 240, 240);
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 16px;
+    border: 1px solid #010613;
+    font-family: 'Oswald', sans-serif;
+    font-size: 18px;
+    color: black;
+  }
+  .controls select{
+    width: 100%;
+    background: #24303c;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 16px;
+    border: 1px solid #1f53c5;
+    font-family: 'calibri';
+    font-size: 18px;
+    color: white;
+    cursor: pointer;
+  }
+  
+  
+  .formLogin .buttons {
+    width: 100%;
+    background:crimson;
+    border: none;
+    padding: 12px;
+    color: white;
+    margin: 16px 0;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 35px;
+  }
+
+  .formLogin .buttons:active{
+    background:#ffbc0f;
+  }
+
+  #successMessage {
+    color: greenyellow;
+    text-align: center;
+  }
+
+  #errorMessage {
+    color: yellow;
+    text-align: center;
+  }
+
+  .register-section {
+    margin-top: 10px;
+    text-align: center; 
 }
 
-.login__footer a {
-  color: #daa520; /* Gold color for the clickable text */
+.register-section p {
+    font-size: 20px; 
 }
 
-/* Side Image */
-.image__aside {
-  width: 50%;
-  background-image: url('/public/img/cover/registro.png'); /* Replace with your image path */
-  background-size: cover;
-  background-position: center;
+.register-section a {
+    color: #ffbc0f; 
+    text-decoration: none;
 }
 
-footer {
+.register-section a:hover {
+    text-decoration: underline;
+}
+
+  /*:::::Footer section:::::*/
+
+  body,html {
+  margin: 0;
+  padding: 0;
+}
+
+.page-container {
+  min-height: 100vh;
+  position: relative;
+}
+
+.footer {
   width: 100%;
   background-color: rgb(51,3,0);
   clear: both;
@@ -168,6 +236,7 @@ footer {
 }
 
 .footer .group-1 .box figure h1 a{
+  font-family:'Sacramento',cursive;
   color: white;
   font-size: 50px;
   text-decoration: none;
@@ -217,16 +286,4 @@ footer {
 
 .footer .group-2 small {
   font-size: 25px;
-}
-
-/* Responsive Styles */
-@media (max-width: 768px) {
-  main {
-      flex-direction: column;
-  }
-  
-  .image__aside {
-      width: 100%;
-      height: 200px;
-  }
 }

@@ -90,3 +90,4 @@ function clearForm(){
   inputPassword.value = "";
   inputConfirmPassword.value = "";
 }
+
