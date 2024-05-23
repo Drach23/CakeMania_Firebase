@@ -89,7 +89,7 @@ function updateUserInfo() {
     <p class="login_welcomeMessage">Bienvenido, ${userData.username}</p>
     <div class="dropdown-content">
       <a href="/cart">Carrito de compras</a>
-      <a href="/profile">Configuración de perfil</a>
+      <a href="/admin">Administrador</a>
       <a href="#" id="logoutButton">Cerrar sesión</a>
     </div>
   </div>`;
