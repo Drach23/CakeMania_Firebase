@@ -57,46 +57,6 @@ header .logo h1 a{
   transform: scale(1.2);
 }
 
-
-.header .navLinks li {
-  display: inline-block;
-  padding: 0 20px;
-  user-select: none;
-}
-
-.header .navLinks li:hover {
-  transform: scale(1.1);
-}
-
-.header .navLinks a {
-  font-size: 26px;
-  text-decoration: none;
-  color: white;
-  transition: all 0.3s;
-  user-select: none;
-}
-
-.header .navLinks li a:hover {
-  color: #ffbc0f;
-}
-
-.header .btn button {
-  font-weight: bold;
-  color: #1b3039;
-  padding: 9px 25px;
-  border: none;
-  border-radius: 50px;
-  background-color: #eceff1;
-  cursor: pointer;
-  user-select: none;
-}
-
-.header .btn button:hover {
-  background-color: #e2f1f8;
-  color: #ffbc0f;
-  transform: scale(1.1);
-}
-
 /* Estilos para el menú desplegable */
 .dropdown {
   position: relative;
@@ -204,7 +164,7 @@ header .logo h1 a{
   
   .formLogin .buttons {
     width: 100%;
-    background:crimson;
+    background: #8B0000;
     border: none;
     padding: 12px;
     color: white;

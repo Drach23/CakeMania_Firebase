@@ -1,3 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sacramento&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@200&family=Sacramento&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-size: 20px;
+  font-family: 'Oswald', sans-serif;
+}
+
 body, h1, h2, h3, p {
     margin: 0;
     padding: 0;
@@ -6,55 +18,73 @@ body, h1, h2, h3, p {
     font-family: 'Arial', sans-serif;
   }
   /*:::::Header Styles:::::*/
-.header {
-  background-color: rgb(51,3,0);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 85px;
-  padding: 5px 10%;
-}
-
-header .logo h1 a{
-  cursor: pointer;
-  font-size: 30px;
-  color:white;
-  pointer-events:painted;
-  user-select: none;
-  text-decoration: none;
-}
-
-.header .logo img {
-  height: 80px;
-  width: auto;
-}
-
-.header .logo img:hover {
-  transform: scale(1.2);
-}
-
-
-.header .navLinks li {
-  display: inline-block;
-  padding: 0 20px;
-  user-select: none;
-}
-
-.header .navLinks li:hover {
-  transform: scale(1.1);
-}
-
-.header .navLinks a {
-  font-size: 26px;
-  text-decoration: none;
-  color: white;
-  transition: all 0.3s;
-  user-select: none;
-}
-
-.header .navLinks li a:hover {
-  color: #ffbc0f;
-}
+  .header {
+    background-color: rgb(51,3,0);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 85px;
+    padding: 5px 10%;
+  }
+  
+  header .logo h1 a{
+    cursor: pointer;
+    font-family:'Sacramento',cursive;
+    font-size: 40px;
+    color:white;
+    pointer-events:painted;
+    user-select: none;
+    text-decoration: none;
+  }
+  
+  .header .logo img {
+    height: 80px;
+    width: auto;
+  }
+  
+  .header .logo img:hover {
+    transform: scale(1.2);
+  }
+  
+  
+  .header .navLinks li {
+    display: inline-block;
+    padding: 0 20px;
+    user-select: none;
+  }
+  
+  .header .navLinks li:hover {
+    transform: scale(1.1);
+  }
+  
+  .header .navLinks a {
+    font-size: 26px;
+    text-decoration: none;
+    color: white;
+    transition: all 0.3s;
+    user-select: none;
+  }
+  
+  .header .navLinks li a:hover {
+    color: #ffbc0f;
+  }
+  
+  .header .btn button {
+    font-weight: bold;
+    color: #1b3039;
+    padding: 9px 25px;
+    border: none;
+    border-radius: 50px;
+    background-color: #eceff1;
+    cursor: pointer;
+    user-select: none;
+  }
+  
+  .header .btn button:hover {
+    background-color: #e2f1f8;
+    color: #ffbc0f;
+    transform: scale(1.1);
+  }
 
 /* Estilos para el menú desplegable */
 .dropdown {
