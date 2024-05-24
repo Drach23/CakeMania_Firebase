@@ -2,7 +2,7 @@ body {
     min-height: 100vh;
     background: url(../img/cover/users-cover.jpg) center / cover;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
     margin: 0;
     padding: 0;
@@ -26,24 +26,37 @@ body {
     box-shadow: 0 .4rem .8rem #0005;
     border-radius: .8rem;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 1rem;
 }
 
 .page-header {
     width: 100%;
     padding: .8rem 1rem;
     background-color: #fff4;
+    color: whitesmoke;
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: center;
+    position: relative;
 }
 
 .page-header .dashboard-link {
-    color: #000;
+    position: absolute;
+    left: 2rem; 
+    color: whitesmoke;
     text-decoration: none;
     font-weight: bold;
+    transition: color 0.2s ease-in-out; 
 }
 
-.user-table {
+.page-header .dashboard-link:hover {
+    color: goldenrod;
+}
+
+.user-table-container {
     width: 95%;
     max-height: calc(89% - 1.6rem);
     background-color: #fffb;
@@ -53,18 +66,18 @@ body {
     overflow: overlay;
 }
 
-.user-table::-webkit-scrollbar {
+.user-table-container::-webkit-scrollbar {
     width: 0.5rem;
     height: 0.5rem;
 }
 
-.user-table::-webkit-scrollbar-thumb {
+.user-table-container::-webkit-scrollbar-thumb {
     border-radius: .5rem;
     background-color: #0004;
     visibility: hidden;
 }
 
-.user-table:hover::-webkit-scrollbar-thumb {
+.user-table-container:hover::-webkit-scrollbar-thumb {
     visibility: visible;
 }
 
