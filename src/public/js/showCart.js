@@ -201,6 +201,11 @@ async function generatePDF() {
         let totalCart = 0; // Initialize total cart value
         cartData.items.forEach(product => {
           // Adjust text to fit within column widths
+          if (y > 280) {
+            pdfDoc.addPage(); // Add a new page
+            y = 10; // Reset the y position
+          }
+
           const productName = pdfDoc.splitTextToSize(product.productName, columnWidths[0]);
           const description = pdfDoc.splitTextToSize(product.description, columnWidths[1]);
           const price = pdfDoc.splitTextToSize(`$${product.price} Mx`, columnWidths[2]);
@@ -213,13 +218,13 @@ async function generatePDF() {
           pdfDoc.text(description, 55, y);
           pdfDoc.text(price, 125, y);
           pdfDoc.text(quantity, 165, y);
-          pdfDoc.text(totalString, 185 + (30 - totalWidth), y); // Adjusted the position of the Total column
-          y += 10;
+          pdfDoc.text(totalString, 172 + (30 - totalWidth), y); // Adjusted the position of the Total column
+          y += 50; // Adjust vertical position for the next product
         });
 
         // Display total cart value at the bottom
         const totalString = `$${totalCart.toFixed(2)} Mx`;
-        pdfDoc.text(`Total de la compra: ${totalString}`, 105, y + 10, { align: 'center' });
+        pdfDoc.text(`Total de la compra: ${totalString}`, 109, y + 10, { align: 'center' });
 
         // Save the PDF
         pdfDoc.save('purchase_details.pdf');
@@ -237,3 +242,4 @@ async function generatePDF() {
     }
   }
 }
+
