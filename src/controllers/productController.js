@@ -49,7 +49,7 @@ exports.createNewProduct = async (req, res) => {
 
     const categoryToCollection = {
       "cupcake": "products-cupcake",
-      "cake": "products-cake",
+      "cakes": "products-cake",
       "milkshake": "products-milkshake",
       "pie": "products-pie",
       "bake": "products-bake",
