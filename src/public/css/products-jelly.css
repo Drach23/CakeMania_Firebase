@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sacramento&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@200&family=Sacramento&display=swap');
+
 body, h1, h2, h3, p {
     margin: 0;
     padding: 0;
@@ -6,6 +10,7 @@ body, h1, h2, h3, p {
     font-family: 'Arial', sans-serif;
   }
   /*:::::Header Styles:::::*/
+/*:::::Header Styles:::::*/
 .header {
   background-color: rgb(51,3,0);
   display: flex;
@@ -17,7 +22,8 @@ body, h1, h2, h3, p {
 
 header .logo h1 a{
   cursor: pointer;
-  font-size: 30px;
+  font-family:'Sacramento',cursive;
+  font-size: 40px;
   color:white;
   pointer-events:painted;
   user-select: none;
@@ -55,6 +61,24 @@ header .logo h1 a{
 .header .navLinks li a:hover {
   color: #ffbc0f;
 }
+
+.header .btn button {
+  font-weight: bold;
+  color: #1b3039;
+  padding: 9px 25px;
+  border: none;
+  border-radius: 50px;
+  background-color: #eceff1;
+  cursor: pointer;
+  user-select: none;
+}
+
+.header .btn button:hover {
+  background-color: #e2f1f8;
+  color: #ffbc0f;
+  transform: scale(1.1);
+}
+
 /* Estilos para el menú desplegable */
 .dropdown {
   position: relative;
