@@ -2,8 +2,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Sacramento&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Mulish:wght@200&family=Sacramento&display=swap');
 
-<<<<<<< HEAD
-=======
 
 /*:::::Page Formatting:::::*/
 * {
@@ -27,7 +25,6 @@ body {
   margin-bottom: 40px;
 }
 
->>>>>>> 15f82dfe4e435b9dd011b796acd5858ac236d95f
 body, html {
   height: 100%;
   margin: 0;
