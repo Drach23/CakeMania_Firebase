@@ -2,6 +2,32 @@
 @import url('https://fonts.googleapis.com/css2?family=Sacramento&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Mulish:wght@200&family=Sacramento&display=swap');
 
+<<<<<<< HEAD
+=======
+
+/*:::::Page Formatting:::::*/
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-size: 20px;
+  font-family: 'Oswald', sans-serif;
+}
+
+html {
+  min-height: 100%;
+  position: relative;
+}
+
+
+
+body {
+  background-color: white;
+  margin: 0;
+  margin-bottom: 40px;
+}
+
+>>>>>>> 15f82dfe4e435b9dd011b796acd5858ac236d95f
 body, h1, h2, h3, p {
     margin: 0;
     padding: 0;
@@ -23,7 +49,11 @@ body, h1, h2, h3, p {
 header .logo h1 a{
   cursor: pointer;
   font-family:'Sacramento',cursive;
+<<<<<<< HEAD
   font-size: 40px;
+=======
+  font-size: 30px;
+>>>>>>> 15f82dfe4e435b9dd011b796acd5858ac236d95f
   color:white;
   pointer-events:painted;
   user-select: none;
